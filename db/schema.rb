@@ -11,7 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140407152415) do
+ActiveRecord::Schema.define(:version => 20140407152858) do
+
+  create_table "attendances", :force => true do |t|
+    t.integer  "event_id"
+    t.integer  "child_id"
+    t.string   "klass_name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "children", :force => true do |t|
     t.integer  "family_id"
@@ -24,12 +32,6 @@ ActiveRecord::Schema.define(:version => 20140407152415) do
     t.integer  "group_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
-  end
-
-  create_table "children_events", :id => false, :force => true do |t|
-    t.integer "child_id"
-    t.integer "event_id"
-    t.string  "klass_name"
   end
 
   create_table "events", :force => true do |t|

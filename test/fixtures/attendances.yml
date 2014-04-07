@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  event_id: 1
+  child_id: 1
+  klass_name: MyString
+
+two:
+  event_id: 1
+  child_id: 1
+  klass_name: MyString
