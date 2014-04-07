@@ -1,5 +1,8 @@
+<h1>Parent Admin</h1>
+
 <% @families.each do |family| %>
   <p class="family" id="family_<%= family.id %>">
     <%= link_to(family.famlilyname, family_path(family.id)) %>
   </p>
 <% end %>
+<%= link_to "Add Parent", :new_parent %>

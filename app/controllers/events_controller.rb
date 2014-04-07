@@ -21,7 +21,7 @@ class EventsController < ApplicationController
     
     if @event.save
       flash[:notice] = "Event Successfully Created"
-      redirect_to(:root)
+      redirect_to(:events)
     else
       flash[:notice] = "Please fix errors."
       render "new"
@@ -39,7 +39,7 @@ class EventsController < ApplicationController
     
     if @event.update_attributes(params[:event])
       flash[:notice] = "Event Successfully Updated"
-      redirect_to(:root)
+      redirect_to(:events)
     else
       flash[:notice] = "Please fix errors."
       render "edit"

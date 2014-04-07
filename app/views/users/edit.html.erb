@@ -3,7 +3,6 @@
 <%= render :partial => "form" %>
 
 <p class="delete_link">
-  <%= form_tag(destroy_user_path(@user.id), method: "post") do %>
-    <%= submit_tag("Delete Account") %>
-  <% end %>
+  <%= link_to "Delete Account", user_path(@user.id), :method => :delete, :id => "delete_user" %>
+
 </p>

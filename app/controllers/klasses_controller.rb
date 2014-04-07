@@ -21,7 +21,7 @@ class KlassesController < ApplicationController
     
     if @klass.save
       flash[:notice] = "Class Successfully Created"
-      redirect_to(:root)
+      redirect_to(:klasses)
     else
       flash[:notice] = "Please fix errors."
       render "new"
@@ -39,7 +39,7 @@ class KlassesController < ApplicationController
     
     if @klass.update_attributes(params[:klass])
       flash[:notice] = "Class Successfully Updated"
-      redirect_to(:root)
+      redirect_to(:klasses)
     else
       flash[:notice] = "Please fix errors."
       render "edit"

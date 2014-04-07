@@ -8,7 +8,7 @@ class LoginsController < ApplicationController
     
     if user && user.authenticate(params[:password])
         session[:user_id] = user.id
-        redirect_to(:root)
+        redirect_to(:users)
     else
       flash[:notice] = "Invalid email address or password"
       redirect_to(:new_login)

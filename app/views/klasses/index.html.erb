@@ -1,5 +1,9 @@
-<% @families.each do |family| %>
-  <p class="family" id="family_<%= family.id %>">
-    <%= link_to(family.famlilyname, family_path(family.id)) %>
+<h1>Class Admin</h1>
+
+<% @klasses.each do |klass| %>
+  <p class="klass" id="klass_<%= klass.id %>">
+    <%= link_to(klass.name, klass_path(klass.id)) %>
+    (<%= klass.min_group_id %> through <%= klass.max_group_id %>)
   </p>
 <% end %>
+<%= link_to "Add New Class", :new_klass %>

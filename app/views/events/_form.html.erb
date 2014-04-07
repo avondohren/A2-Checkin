@@ -1,104 +1,28 @@
-<% states = [
-        ['Alabama', 'AL'], 
-        ['Alaska', 'AK'],
-        ['Arizona', 'AZ'],
-        ['Arkansas', 'AR'], 
-        ['California', 'CA'], 
-        ['Colorado', 'CO'], 
-        ['Connecticut', 'CT'], 
-        ['Delaware', 'DE'], 
-        ['District Of Columbia', 'DC'], 
-        ['Florida', 'FL'],
-        ['Georgia', 'GA'],
-        ['Hawaii', 'HI'], 
-        ['Idaho', 'ID'], 
-        ['Illinois', 'IL'], 
-        ['Indiana', 'IN'], 
-        ['Iowa', 'IA'], 
-        ['Kansas', 'KS'], 
-        ['Kentucky', 'KY'], 
-        ['Louisiana', 'LA'], 
-        ['Maine', 'ME'], 
-        ['Maryland', 'MD'], 
-        ['Massachusetts', 'MA'], 
-        ['Michigan', 'MI'], 
-        ['Minnesota', 'MN'],
-        ['Mississippi', 'MS'], 
-        ['Missouri', 'MO'], 
-        ['Montana', 'MT'], 
-        ['Nebraska', 'NE'], 
-        ['Nevada', 'NV'], 
-        ['New Hampshire', 'NH'], 
-        ['New Jersey', 'NJ'], 
-        ['New Mexico', 'NM'], 
-        ['New York', 'NY'], 
-        ['North Carolina', 'NC'], 
-        ['North Dakota', 'ND'], 
-        ['Ohio', 'OH'], 
-        ['Oklahoma', 'OK'], 
-        ['Oregon', 'OR'], 
-        ['Pennsylvania', 'PA'], 
-        ['Rhode Island', 'RI'], 
-        ['South Carolina', 'SC'], 
-        ['South Dakota', 'SD'], 
-        ['Tennessee', 'TN'], 
-        ['Texas', 'TX'], 
-        ['Utah', 'UT'], 
-        ['Vermont', 'VT'], 
-        ['Virginia', 'VA'], 
-        ['Washington', 'WA'], 
-        ['West Virginia', 'WV'], 
-        ['Wisconsin', 'WI'], 
-        ['Wyoming', 'WY']] %>
-
-<%= form_for @family do |f| %>
-  <% if @family.errors.any? %>
-    <% @family.errors.full_messages.each do |error_msg| %>
+<%= form_for @event do |f| %>
+  <% if @event.errors.any? %>
+    <% @event.errors.full_messages.each do |error_msg| %>
       <p class="form_error"><%= error_msg %></p>
     <% end %>
   <% end %>
-  
-  :address, :alt_email, :alt_phone, :email, :familyname, 
-  :phone, :state, :zipcode
 
   <p class="form_field">
-    <%= f.label :familyname %><br />
-    <%= f.text_field :familyname %>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
   </p>
   
   <p class="form_field">
-    <%= f.label :address %><br />
-    <%= f.text_field :address %>
+    <%= f.label :date %><br />
+    <%= f.text_field :date %>
   </p>
   
   <p class="form_field">
-    <%= f.label :state %><br />
-    <%= f.select(:family, :state, states, :selected => 'Nebraska') %>
+    <%= f.label :duration, 'Duration(Min)' %><br />
+    <%= f.text_field :duration %>
   </p>
   
   <p class="form_field">
-    <%= f.label :zipcode %><br />
-    <%= f.text_field :zipcode %>
-  </p>
-  
-  <p class="form_field">
-    <%= f.label :phone %><br />
-    <%= f.text_field :phone %>
-  </p>
-  
-  <p class="form_field">
-    <%= f.label :alt_phone %><br />
-    <%= f.password_field :alt_phone %>
-  </p>
-  
-  <p class="form_field">
-    <%= f.label :email %><br />
-    <%= f.password_field :email %>
-  </p>
-  
-  <p class="form_field">
-    <%= f.label :alt_email %><br />
-    <%= f.password_field :alt_email %>
+    <%= f.label :start_time %><br />
+    <%= f.text_field :start_time %>
   </p>
   
   <%= f.submit %>

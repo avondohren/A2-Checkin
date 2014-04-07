@@ -1,5 +1,8 @@
-<% @families.each do |family| %>
-  <p class="family" id="family_<%= family.id %>">
-    <%= link_to(family.famlilyname, family_path(family.id)) %>
+<h1>Event Admin</h1>
+
+<% @events.each do |event| %>
+  <p class="event" id="event_<%= event.id %>">
+    <%= link_to(event.name, event_path(event.id)) %>
   </p>
 <% end %>
+<%= link_to "Add Event", :new_event %>

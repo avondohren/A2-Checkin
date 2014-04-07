@@ -1,0 +1,7 @@
+<h1>Event Information</h1>
+<h1><%= @event.name %></h1>
+
+<p>Date: <%= @event.date %></p>
+<p>Time: <%= @event.start_time %></p>
+<p>Duration(Min): <%= @event.duration %></p>
+<%= link_to "Edit Event", edit_event_path(@event.id) %>
