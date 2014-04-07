@@ -1,0 +1,9 @@
+<h1>Edit Profile</h1>
+
+<%= render :partial => "form" %>
+
+<p class="delete_link">
+  <%= form_tag(destroy_user_path(@user.id), method: "post") do %>
+    <%= submit_tag("Delete Account") %>
+  <% end %>
+</p>

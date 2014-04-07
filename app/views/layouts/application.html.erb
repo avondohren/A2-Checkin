@@ -6,9 +6,16 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
-<body>
-
-<%= yield %>
+<body id="<%= params[:controller] %>">
+  <!-- If a flash message is provided, display it. -->
+  <% if flash[:notice] || flash[:alert] %>
+    <div id="flash">
+      <p id="notice"><%= flash[:notice] %></p>
+      <p id="alert"><%= flash[:alert] %></p>
+    </div>
+  <% end %>
+  
+  <%= yield %>
 
 </body>
 </html>

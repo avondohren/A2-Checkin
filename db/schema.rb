@@ -29,7 +29,6 @@ ActiveRecord::Schema.define(:version => 20140407152858) do
     t.text     "allergies"
     t.text     "concerns"
     t.date     "birthday"
-    t.integer  "group_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

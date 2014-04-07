@@ -8,7 +8,6 @@ class CreateChildren < ActiveRecord::Migration
       t.text :allergies
       t.text :concerns
       t.date :birthday
-      t.integer :group_id
 
       t.timestamps
     end
