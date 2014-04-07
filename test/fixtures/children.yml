@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  family_id: 1
+  klass_id: 1
+  firstname: MyString
+  lastname: MyString
+  allergies: MyText
+  concerns: MyText
+  birthday: 2014-04-07
+  group_id: 1
+
+two:
+  family_id: 1
+  klass_id: 1
+  firstname: MyString
+  lastname: MyString
+  allergies: MyText
+  concerns: MyText
+  birthday: 2014-04-07
+  group_id: 1

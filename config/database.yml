@@ -16,9 +16,8 @@ development:
   adapter: postgresql
   encoding: unicode
   database: a2-checkin_development
-  pool: 5
-  username: a2-checkin
-  password:
+  host: localhost
+  port: <%= ENV["BOXEN_POSTGRESQL_PORT"] || 5432 %>
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
@@ -42,14 +41,12 @@ test:
   adapter: postgresql
   encoding: unicode
   database: a2-checkin_test
-  pool: 5
-  username: a2-checkin
-  password:
+  host: localhost
+  port: <%= ENV["BOXEN_POSTGRESQL_PORT"] || 5432 %>
 
 production:
   adapter: postgresql
   encoding: unicode
   database: a2-checkin_production
-  pool: 5
-  username: a2-checkin
-  password:
+  host: localhost
+  port: <%= ENV["BOXEN_POSTGRESQL_PORT"] || 5432 %>
