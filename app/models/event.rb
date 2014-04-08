@@ -1,5 +1,5 @@
 class Event < ActiveRecord::Base
-  attr_accessible :date, :duration, :name, :start_time
+  attr_accessible :date, :duration, :name, :start_time, :attendances_attributes
   
   has_many :attendances
   has_many :children, through: :attendances

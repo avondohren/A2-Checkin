@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(:version => 20140407152858) do
   create_table "families", :force => true do |t|
     t.string   "familyname"
     t.string   "address"
+    t.string   "city"
     t.string   "state"
     t.string   "zipcode"
     t.string   "phone"

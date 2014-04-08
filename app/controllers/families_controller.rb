@@ -13,6 +13,11 @@ class FamiliesController < ApplicationController
   def new
     authorize
     @family = Family.new
+    
+    @klasses = []
+    Klass.all.each do |klass|
+      @klasses << [klass.name + " (" + Klass::AGES[klass.min_group_id][0] + " through " + Klass::AGES[klass.max_group_id][0] + ")",klass.id]
+    end
   end
   
   def create
@@ -21,7 +26,8 @@ class FamiliesController < ApplicationController
     
     if @family.save
       flash[:notice] = "Family Successfully Created"
-      redirect_to(:root)
+      session[:family_id] = @family.id
+      redirect_to(:families)
     else
       flash[:notice] = "Please fix errors."
       render "new"
@@ -31,6 +37,11 @@ class FamiliesController < ApplicationController
   def edit
     authorize
     @family = Family.find(params[:id])
+    
+    @klasses = []
+    Klass.all.each do |klass|
+      @klasses << [klass.name + " (" + Klass::AGES[klass.min_group_id][0] + " through " + Klass::AGES[klass.max_group_id][0] + ")",klass.id]
+    end
   end
   
   def update
@@ -39,7 +50,8 @@ class FamiliesController < ApplicationController
     
     if @family.update_attributes(params[:family])
       flash[:notice] = "Family Successfully Updated"
-      redirect_to(:root)
+      session[:family_id] = @family.id
+      redirect_to(:families)
     else
       flash[:notice] = "Please fix errors."
       render "edit"

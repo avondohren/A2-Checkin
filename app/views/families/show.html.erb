@@ -1,0 +1,9 @@
+<h1>Family Information</h1>
+<h1><%= @family.familyname %> Family</h1>
+
+<p>Family Name: <%= @family.familyname %></p>
+<p>Address: <%= @family.address %></p>
+<p>City: <%= @family.city %></p>
+<p>State: <%= @family.state %></p>
+<p>ZipCode: <%= @family.zipcode %></p>
+<%= link_to "Edit Family", edit_family_path(@family.id) %>

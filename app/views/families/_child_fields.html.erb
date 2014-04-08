@@ -1,0 +1,36 @@
+<div class="child_div">
+  <%= f.hidden_field :klass_id %>
+  
+  <p class="form_field">
+    <%= f.label :firstname %><br />
+    <%= f.text_field :firstname %>
+  </p>
+  
+  <p class="form_field">
+    <%= f.label :lastname %><br />
+    <%= f.text_field :lastname %>
+  </p>
+  
+  <p class="form_field">
+    <%= f.label :group_id, "Age/Grade" %><br />
+    <%= f.select(:group_id, Klass::AGES) %>
+  </p>
+  
+  <p class="form_field">
+    <%= f.label :birthday %><br />
+    <%= f.text_field :birthday %>
+  </p>
+  
+  <p class="form_field">
+    <%= f.label :allergies %><br />
+    <%= f.text_area :allergies, :cols => "30", :rows => "2" %>
+  </p>
+  
+  <p class="form_field">
+    <%= f.label :concerns %><br />
+    <%= f.text_area :concerns, :cols => "30", :rows => "2" %>
+  </p>
+  
+  <%= f.check_box :_destroy %>
+  <%= f.label :_destroy, "Remove Child" %>
+</div>

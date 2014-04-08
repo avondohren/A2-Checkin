@@ -1,13 +1,31 @@
 class Child < ActiveRecord::Base
-  attr_accessible :allergies, :birthday, :concerns, :family_id, :firstname, :group_id, :klass_id, :lastname
+  attr_accessible :allergies, :birthday, :concerns, :family_id, :firstname, :klass_id, :lastname, :group_id
+  attr_accessor :group_id
   
-  belongs_to :family
-  belongs_to :klass
-  has_may :attendances
+  before_validation :assign_class
+  
+  belongs_to :family, :inverse_of => :children
+  belongs_to :klass, :inverse_of => :children
+  has_many :attendances
   has_many :events, through: :attendances
   
   validates :firstname, :presence => true
   validates :lastname, :presence => true
   validates :birthday, :presence => true
-  validates :group_id, :presence => true
+  validates_presence_of :klass_id
+  
+  def name
+    firstname + " " + lastname
+  end
+  
+  def assign_class
+    age = self.group_id
+    
+    Klass.all.each do |c|
+      if age.to_i >= c.min_group_id && age.to_i <= c.max_group_id
+        self.klass_id = c.id
+        break
+      end
+    end
+  end
 end

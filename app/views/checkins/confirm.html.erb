@@ -1,0 +1,13 @@
+<h1>Confirm</h1>
+
+<%= form_tag confirm_submit_path do %>
+  <% @children.each do |child| %>
+    <p>
+      <%= check_box_tag "children[kid#{child.id}]", "#{child.id}" %>
+      <%= label_tag child.name %>
+    </p>
+  <% end %>
+  <%= submit_tag "Check In" %>
+<% end %>
+
+

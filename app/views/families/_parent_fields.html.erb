@@ -1,10 +1,4 @@
-<%= form_for @parent do |f| %>
-  <% if @parent.errors.any? %>
-    <% @parent.errors.full_messages.each do |error_msg| %>
-      <p class="form_error"><%= error_msg %></p>
-    <% end %>
-  <% end %>
-
+<div class="parent_div">
   <p class="form_field">
     <%= f.label :firstname %><br />
     <%= f.text_field :firstname %>
@@ -20,5 +14,6 @@
     <%= f.select(:relationship, Parent::RELATIONS) %>
   </p>
   
-  <%= f.submit %>
-<% end %>
+  <%= f.hidden_field :_destroy %>
+  <%= link_to "Remove Parent", '#', class: "remove_fields" %>
+</div>

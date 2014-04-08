@@ -3,6 +3,7 @@
 <% @events.each do |event| %>
   <p class="event" id="event_<%= event.id %>">
     <%= link_to(event.name, event_path(event.id)) %>
+    ( <%= link_to("Mark As Active Event", activate_event_path(event.id)) %> )
   </p>
 <% end %>
 <%= link_to "Add Event", :new_event %>

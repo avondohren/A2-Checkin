@@ -15,3 +15,7 @@
 <%= link_to "Event Admin", :events %>
 <%= link_to "Family Admin", :families %>
 <%= link_to "Class Admin", :klasses %>
+
+<p>Current Event: <%= Event.find(session[:event_id]).name %> (<%= session[:event_id] %>)</p>
+<p>Current User: <%= User.find(session[:user_id]).username %> (<%= session[:user_id] %>)</p>
+<p>Current Family: <%= Family.find(session[:family_id]).familyname %> (<%= session[:family_id] %>)</p>

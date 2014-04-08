@@ -12,12 +12,12 @@
   
   <p class="form_field">
     <%= f.label :min_group_id %><br />
-    <%= f.text_field :min_group_id %>
+    <%= f.select(:min_group_id, Klass::AGES) %>
   </p>
   
   <p class="form_field">
     <%= f.label :max_group_id %><br />
-    <%= f.text_field :max_group_id %>
+    <%= f.select(:max_group_id, Klass::AGES) %>
   </p>
   
   <%= f.submit %>

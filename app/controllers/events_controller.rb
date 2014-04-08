@@ -54,4 +54,12 @@ class EventsController < ApplicationController
     flash[:notice] = "Event Deleted"
     redirect_to(:root)
   end
+  
+  def activate
+    event = Event.find(params[:id])
+    
+    session[:event_id] = event.id
+    
+    redirect_to(:events)
+  end
 end

@@ -3,6 +3,7 @@ class CreateFamilies < ActiveRecord::Migration
     create_table :families do |t|
       t.string :familyname
       t.string :address
+      t.string :city
       t.string :state
       t.string :zipcode
       t.string :phone
