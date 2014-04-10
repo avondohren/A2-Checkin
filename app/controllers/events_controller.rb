@@ -8,6 +8,8 @@ class EventsController < ApplicationController
   def show
     authorize
     @event = Event.find(params[:id])
+    
+    @klasses = Attendance.where(:event_id => @event.id).uniq.pluck(:klass_name)
   end
 
   def new
@@ -59,6 +61,12 @@ class EventsController < ApplicationController
     event = Event.find(params[:id])
     
     session[:event_id] = event.id
+    
+    redirect_to(:events)
+  end
+  
+  def deactivate
+    session[:event_id] = nil
     
     redirect_to(:events)
   end

@@ -1,19 +1,23 @@
-<div class="parent_div">
-  <p class="form_field">
-    <%= f.label :firstname %><br />
-    <%= f.text_field :firstname %>
-  </p>
-  
-  <p class="form_field">
-    <%= f.label :lastname %><br />
-    <%= f.text_field :lastname %>
-  </p>
-  
-  <p class="form_field">
-    <%= f.label :relationship %><br />
-    <%= f.select(:relationship, Parent::RELATIONS) %>
-  </p>
-  
-  <%= f.hidden_field :_destroy %>
-  <%= link_to "Remove Parent", '#', class: "remove_fields" %>
+<div class="clear frost">
+  <div class="left">
+    <p class="form_field inlineb">
+      <%= f.label :firstname %><br />
+      <%= f.text_field :firstname %>
+    </p>
+
+    <p class="form_field inlineb">
+      <%= f.label :lastname %><br />
+      <%= f.text_field :lastname %>
+    </p>
+  </div>
+
+  <div class="left">
+    <p class="form_field">
+      <%= f.label :relationship %><br />
+      <%= f.select(:relationship, Parent::RELATIONS) %>
+    </p>
+
+    <%= f.hidden_field :_destroy %>
+    <%= link_to "Remove Parent", '#', class: "remove_fields" %>
+  </div>
 </div>

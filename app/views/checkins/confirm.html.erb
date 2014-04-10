@@ -1,13 +1,18 @@
-<h1>Confirm</h1>
+<div id="checkins_confirm">
+  <h1>Confirm</h1>
 
-<%= form_tag confirm_submit_path do %>
-  <% @children.each do |child| %>
-    <p>
-      <%= check_box_tag "children[kid#{child.id}]", "#{child.id}" %>
-      <%= label_tag child.name %>
-    </p>
+  <h2><%= @family.familyname %></h2>
+  <p><%= link_to("Edit Family", edit_family_path(@family.id)) %></p>
+
+  <%= form_tag confirm_submit_path do %>
+    <% @family.children.each do |child| %>
+      <p>
+        <%= check_box_tag "children[kid#{child.id}]", "#{child.id}" %>
+        <%= label_tag child.name %>
+      </p>
+    <% end %>
+    <%= submit_tag "Check In" %>
   <% end %>
-  <%= submit_tag "Check In" %>
-<% end %>
+</div>
 
 

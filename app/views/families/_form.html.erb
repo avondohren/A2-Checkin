@@ -4,60 +4,91 @@
       <p class="form_error"><%= error_msg %></p>
     <% end %>
   <% end %>
+  <div id="get_info_form" class="accordion">
+    <h3 id="family_info" class="clear">Family Information</h3>
+    <div>
+      <div id="family_form" class="clear">
+        <div class="left">
+          <p class="form_field">
+            <%= f.label :familyname, "Family Name" %><br />
+            <%= f.text_field :familyname %>
+          </p>
+    
+          <p class="form_field">
+            <%= f.label :address %><br />
+            <%= f.text_field :address %>
+          </p>
+    
+          <p class="form_field inlineb">
+            <%= f.label :city %><br />
+            <%= f.text_field :city, :size => 10 %>
+          </p>
+    
+          <p class="form_field inlineb">
+            <%= f.label :state %><br />
+            <%= f.select(:state, @family.states, :selected => 'NE') %>
+          </p>
+    
+          <p class="form_field inlineb">
+            <%= f.label :zipcode %><br />
+            <%= f.text_field :zipcode, :size => 5 %>
+          </p>
+        </div>
+        
+        <div class="left">
+          <p class="form_field">
+            <%= f.label :phone %><br />
+            <%= f.text_field :phone, :class => "phone" %>
+          </p>
+    
+          <p class="form_field">
+            <%= f.label :alt_phone %><br />
+            <%= f.text_field :alt_phone, :class => "phone" %>
+          </p>
+    
+          <p class="form_field">
+            <%= f.label :email %><br />
+            <%= f.text_field :email %>
+          </p>
+    
+          <p class="form_field">
+            <%= f.label :alt_email %><br />
+            <%= f.text_field :alt_email %>
+          </p>
+        </div>
+      </div>
+      
+      <div class="clear links">
+        <%= link_to("Next", '#', class: "right", id: "next_par") %>
+      </div>
+    </div>
   
-  <p class="form_field">
-    <%= f.label :familyname, "Family Name" %><br />
-    <%= f.text_field :familyname %>
-  </p>
+    <h3 id="parent_info">Parent Information</h3>
+    <div>
+      <div id="parent_form">
+        <%= f.fields_for :parents do |parent| %>
+          <%= render 'parent_fields', f: parent %>
+        <% end %>
+      </div>
+      <div class="clear links">
+        <%= link_to("Back", '#', class: "left", id: "next_fam") %>
+        <%= link_to_add_fields "Add Parent", f, :parents %>
+        <%= link_to("Next", '#', class: "right", id: "next_kid") %>
+      </div>
+    </div>
   
-  <p class="form_field">
-    <%= f.label :address %><br />
-    <%= f.text_field :address %>
-  </p>
-  
-  <p class="form_field">
-    <%= f.label :city %><br />
-    <%= f.text_field :city %>
-  </p>
-  
-  <p class="form_field">
-    <%= f.label :state %><br />
-    <%= f.select(:state, @family.states, :selected => 'NE') %>
-  
-  <p class="form_field">
-    <%= f.label :zipcode %><br />
-    <%= f.text_field :zipcode %>
-  </p>
-  
-  <p class="form_field">
-    <%= f.label :phone %><br />
-    <%= f.text_field :phone %>
-  </p>
-  
-  <p class="form_field">
-    <%= f.label :alt_phone %><br />
-    <%= f.text_field :alt_phone %>
-  </p>
-  
-  <p class="form_field">
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
-  </p>
-  
-  <p class="form_field">
-    <%= f.label :alt_email %><br />
-    <%= f.text_field :alt_email %>
-  </p>
-  
-  <%= f.fields_for :parents do |parent| %>
-    <%= render 'parent_fields', f: parent %>
-  <% end %>
-  <%= link_to_add_fields "Add Parent", f, :parents %>
-  
-  <%= f.fields_for :children do |child| %>
-    <%= render 'child_fields', f: child %>
-  <% end %>
-  <%= link_to_add_fields "Add Child", f, :children %>
-  
-  <%= f.submit %>
+    <h3 id="child_info">Child Information</h3>
+    <div>
+      <div id="child_form">
+        <%= f.fields_for :children do |child| %>
+          <%= render 'child_fields', f: child %>
+        <% end %>
+      </div>
+      <div class="clear links">
+        <%= link_to("Back", '#', class: "left", id: "next_par") %>
+        <%= link_to_add_fields "Add Child", f, :children %>
+        <%= link_to("Save & Check-in", '#', :class => "new_button right", :id => "submit") %>
+      </div>
+    </div>
+  </div>
 <% end %>

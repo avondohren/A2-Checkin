@@ -12,4 +12,23 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.ui.accordion
 //= require_tree .
+
+$("document").ready(function() {
+  jQuery(function($){
+    $(".phone").mask("999-999-9999");
+  });
+  
+  setTimeout(function(){
+      $("#flash").fadeOut("slow");
+  },3000);
+  
+  $( ".accordion" ).accordion({ heightStyle: "content" });
+  
+  $('#submit').on('click', function(event){
+    $(this).closest('form').submit();
+    event.preventDefault();
+  });
+});
+

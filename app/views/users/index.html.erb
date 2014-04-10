@@ -1,21 +1,23 @@
 <h1>Welcome <%= current_user.username %>!</h1>
-<h2><% if session[:event_id] %>
-    <%= "Current Event: " + Event.find(session[:event_id]).name %>
-  <% else %>
-    <%= "Please Select An Event" %>
-  <% end %>
-</h2>
 
-<% @users.each do |user| %>
-  <p class="user" id="user_<%= user.id %>">
-    <%= link_to(user.username, user_path(user.id)) %>
-  </p>
+<%= link_to "Event Admin", :events, :class => "admin_nav" %>
+<%= link_to "Family Admin", :families, :class => "admin_nav" %>
+<%= link_to "Class Admin", :klasses, :class => "admin_nav" %>
+
+<% if session[:event_id] %>
+  <p>Current Event: <%= Event.find(session[:event_id]).name %> (<%= link_to("Empty Event", :deactivate_event) %>)</p>
+<% else %>
+  <p>Current Event: No Active Event</p>
 <% end %>
 
-<%= link_to "Event Admin", :events %>
-<%= link_to "Family Admin", :families %>
-<%= link_to "Class Admin", :klasses %>
+<% if session[:user_id] %>
+  <p>Current User: <%= User.find(session[:user_id]).username %> (<%= link_to("Sign Out", login_path(1), :method => :delete) %>)</p>
+<% else %>
+  <p>Current User: No Active User</p>
+<% end %>
 
-<p>Current Event: <%= Event.find(session[:event_id]).name %> (<%= session[:event_id] %>)</p>
-<p>Current User: <%= User.find(session[:user_id]).username %> (<%= session[:user_id] %>)</p>
-<p>Current Family: <%= Family.find(session[:family_id]).familyname %> (<%= session[:family_id] %>)</p>
+<% if session[:family_id] %>
+  <p>Current Family: <%= Family.find(session[:family_id]).familyname %> (<%= link_to("Empty Family", :switch_family) %>)</p>
+<% else %>
+  <p>Current Family: No Active Family</p>
+<% end %>

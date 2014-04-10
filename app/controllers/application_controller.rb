@@ -9,6 +9,12 @@ class ApplicationController < ActionController::Base
       redirect_to :new_login
     end
   end
+  
+  def eventize
+    if session[:event_id].nil?
+      flash[:notice] = "Please activate an Event"
+    end
+  end
     
   private
   

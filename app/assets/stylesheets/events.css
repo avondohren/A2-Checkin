@@ -1,0 +1,15 @@
+#events table{
+  background-color: white;
+  border:1px solid black;
+}
+
+
+
+#events .gap{
+  line-height: 34px;
+}
+
+#events th{
+  background-color: #434343;
+  color: white;
+}

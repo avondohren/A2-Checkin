@@ -42,6 +42,8 @@ GEM
     jquery-rails (3.1.0)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
+    jquery-ui-rails (4.2.0)
+      railties (>= 3.2.16)
     json (1.8.1)
     mail (2.5.4)
       mime-types (~> 1.16)
@@ -97,6 +99,7 @@ DEPENDENCIES
   bcrypt-ruby (~> 3.0.0)
   dotenv-rails
   jquery-rails
+  jquery-ui-rails
   pg
   rails (= 3.2.17)
   uglifier (>= 1.0.3)

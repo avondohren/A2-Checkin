@@ -10,7 +10,7 @@ class LoginsController < ApplicationController
         session[:user_id] = user.id
         redirect_to(:users)
     else
-      flash[:notice] = "Invalid email address or password"
+      flash[:notice] = "Invalid username or password"
       redirect_to(:new_login)
     end
   end

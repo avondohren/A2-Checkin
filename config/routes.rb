@@ -1,4 +1,16 @@
 A2Checkin::Application.routes.draw do
+  root to: 'families#index'
+  
+  get "checkins/new" => 'checkins#new', :as => :new_checkin
+  post "checkins/new" => 'checkins#activate', :as => :activate_checkin
+  get "checkins/confirm" => 'checkins#confirm', :as => :confirm
+  post "checkins/confirm" => 'checkins#submit', :as => :confirm_submit
+  get "events/activate/:id" => 'events#activate', :as => :activate_event
+  get "events/deactivate" => 'events#deactivate', :as => :deactivate_event
+  get "families/switch" => 'families#switch', :as => :switch_family
+  get "families/select" => 'families#select', :as => :select_family
+  post "families/activate" => 'families#activate', :as => :activate_family
+  
   resources :users
   resources :logins, :only => [:new, :create, :destroy]
   resources :checkins, :only => [:new, :create, :destroy]
@@ -7,9 +19,5 @@ A2Checkin::Application.routes.draw do
   resources :children
   resources :klasses
   resources :events
-  root to: 'families#index'
   
-  get "checkins/confirm" => 'checkins#confirm', :as => :confirm
-  post "checkins/confirm" => 'checkins#submit', :as => :confirm_submit
-  get "checkins/activate/:id" => 'events#activate', :as => :activate_event
 end

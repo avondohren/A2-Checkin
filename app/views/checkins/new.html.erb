@@ -1,10 +1,15 @@
-<h1>Check In</h1>
 
-<%= form_tag checkins_path do %>
-  <p>
-    <%= label_tag :phone %><br />
-    <%= text_field_tag :phone %>
-  </p>
+<div id="checkin_div">
+  <h1>Check In</h1>
+
+  <%= form_tag :checkins do %>
+    <p>
+      <%= label_tag :phone %><br />
+      <%= text_field_tag :phone, nil, :class => "phone" %>
+      <%= submit_tag "Log In" %>
+    </p>
   
-  <%= submit_tag "Log In" %>
-<% end %>
+  <% end %>
+
+  <p><%= link_to("Create New Family", :new_family, :class => "new_button") %></p>
+</div>

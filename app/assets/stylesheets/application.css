@@ -8,6 +8,76 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
+ *= require jquery.ui.accordion
  *= require_self
  *= require_tree .
  */
+.clear:before,
+.clear:after {
+    content: " ";
+    display: table;
+}
+
+.clear:after {
+    clear: both;
+}
+
+html { height: 100%; }
+
+body {
+  background-color: #7a0010;
+  background-image: url(http://www.transparenttextures.com/patterns/bright-squares.png);
+  /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+  height: 93%;
+  font-family: 'Open Sans', sans-serif;
+}
+
+#container {
+  
+  width: 100%;
+  max-width: 900px;
+  height: 100;
+  min-height: 100%;
+  background-color: rgba(230, 230, 230, 0.9);
+  margin: 0 auto;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+
+a {
+  color: black;
+}
+
+a:hover {text-decoration:underline;}
+
+.grey {
+  color: grey;
+}
+
+a.new_button {
+  color: white;
+  background-color: darkred;
+  text-decoration:none;
+  padding: 7px 15px;
+  margin: 5px 4px;
+  border-radius: 5px;
+}
+
+a#submit {
+  background-color: green;
+}
+
+select, input, textarea{
+  padding: 10px;
+  font-size: 18px;
+  border-radius: 5px;
+}
+
+.right{
+  float: right;
+}
+
+.left{
+  float: left;
+}

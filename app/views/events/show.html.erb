@@ -5,3 +5,30 @@
 <p>Time: <%= @event.start_time %></p>
 <p>Duration(Min): <%= @event.duration %></p>
 <%= link_to "Edit Event", edit_event_path(@event.id) %>
+
+<% if Attendance.where(:event_id => @event.id).present? %>
+  <div class="clear" id="attendance">
+    <table class="t_attendance">
+      <tr class="gap">
+        <th>Attendence</th>
+        <th>Total</th>
+      </tr>
+      <tr>
+        <td>Grand Total</td>
+        <td><%= Attendance.where(:event_id => @event.id).count %></td>
+      </tr>
+      <% @klasses.each do |k| %>
+        <tr class="gap">
+          <th><%= k %></th>
+          <th><%= Attendance.where(["event_id = ? and klass_name = ?", @event.id, k]).count %></th>
+        </tr>
+        <% Attendance.where(["event_id = ? and klass_name = ?", @event.id, k]).each do |a| %>
+          <tr>
+            <td colspan="2"><%= a.child.name %></td>
+          </tr>
+        <% end %>
+        <tr></tr>
+      <% end %>
+    </table>
+  </div>
+<% end %>

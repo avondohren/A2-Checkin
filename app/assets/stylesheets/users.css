@@ -1,0 +1,8 @@
+#users .admin_nav{
+  color: white;
+  background-color: darkred;
+  text-decoration:none;
+  padding: 7px 15px;
+  margin: 0px 4px;
+  border-radius: 5px;
+}

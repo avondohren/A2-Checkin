@@ -1,0 +1,27 @@
+#families .left{
+  width: 300px;
+  margin: 0 25px;
+}
+
+#families .inlineb{
+  display: inline-block;
+  margin: 5px 0;
+}
+
+#families select{
+  margin: 16px 2px;
+}
+
+#families #add_fields{
+  display: block;
+}
+
+#families .frost{
+  background-color: #D2C6C7;
+  border-radius: 7px;
+  margin: 5px 0;
+}
+
+.ui-accordion-content{
+  background-color: white;
+}
