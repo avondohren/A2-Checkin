@@ -1,13 +1,39 @@
 <h1>Event Admin</h1>
 
-<% @events.each do |event| %>
-  <p class="event" id="event_<%= event.id %>">
-    <%= link_to(event.name, event_path(event.id)) %>
-    <% if session[:event_id] == event.id %>
-      ( Active Event )
-    <% else %>
-      ( <%= link_to("Mark As Active Event", activate_event_path(event.id), :class => "grey") %> )
-    <% end %>
-  </p>
+<h3>Future Events</h3>
+<table id="event_table">
+  <tr>
+    <th>Event</th>
+    <th>Date</th>
+    <th></th>
+  </tr>
+
+<% @fut_events.each do |event| %>
+  <tr>
+    <td><%= event.name %></td>
+    <td><%= event.date.strftime("%a, %b %e, %Y") %></td>
+    <td><%= link_to 'Show', event %></td>
+  </tr>
 <% end %>
-<%= link_to "Add Event", :new_event, :class => "new_button" %>
+</table>
+
+<br />
+<%= link_to 'New Event', new_event_path %>
+<br />
+
+<h3>Past Events</h3>
+<table id="event_table">
+  <tr>
+    <th>Event</th>
+    <th>Date</th>
+    <th></th>
+  </tr>
+
+<% @past_events.each do |event| %>
+  <tr>
+    <td><%= event.name %></td>
+    <td><%= event.date.strftime("%a, %b %e, %Y") %></td>
+    <td><%= link_to 'Show', event %></td>
+  </tr>
+<% end %>
+</table>

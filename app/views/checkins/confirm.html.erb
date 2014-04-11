@@ -2,7 +2,7 @@
   <h1>Who's Here?</h1>
 
   <!-- <h2><%= @family.familyname %></h2> -->
-  <p><%= @family.familyname %> family (<%= link_to("Edit Family", edit_family_path(@family.id)) %>)</p>
+  <p><%= @family.familyname %> family (<%= link_to("Edit Family", edit_family_checkin_path(@family.id)) %>)</p>
 
   <%= form_tag confirm_submit_path do %>
     <% @family.children.each do |child| %>

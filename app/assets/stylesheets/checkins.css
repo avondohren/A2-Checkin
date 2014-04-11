@@ -4,3 +4,7 @@
   margin-left: 60%;
   width: 350px;
 }
+
+#checkins #flash{
+  position: absolute;
+}

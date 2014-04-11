@@ -37,7 +37,7 @@ body {
   max-width: 900px;
   height: 100;
   min-height: 100%;
-  background-color: rgba(230, 230, 230, 0.9);
+  background-color: rgba(230, 230, 230, 1);
   margin: 0 auto;
   padding: 15px;
   border-radius: 10px;
@@ -52,8 +52,6 @@ body {
 }
 
 #flash{
-  position: absolute;
-  top
   background-color: rgba(255,255,255,0.6);
   border-radius: 10px;
   border: 1 solid black;
@@ -76,7 +74,7 @@ body {
   background-color: rgba(100,100,100,0.3);
 }
 
-h1,h2,h3,h4,h5,h6{
+h1{
   border-bottom: 2px solid;
 }
 
@@ -95,7 +93,7 @@ a.new_button {
   background-color: darkred;
   text-decoration:none;
   padding: 7px 15px;
-  margin: 5px 4px;
+  margin: -7px 4px;
   border-radius: 5px;
 }
 
@@ -117,20 +115,24 @@ select, input, textarea{
   float: left;
 }
 
+.center{
+  margin: 0 auto;
+}
+
 #admin ul{
-list-style-type:none;
-margin:0;
-background-color: darkred;
-padding:10px;
-border-radius: 5px;
+  list-style-type:none;
+  margin:0;
+  background-color: darkred;
+  padding:10px;
+  border-radius: 5px;
 }
 
 #admin ul li
 {
-display:inline;
-background-color: darkred;
-padding: 5px;
-border-radius: 3px;
+  display:inline;
+  background-color: darkred;
+  padding: 5px;
+  border-radius: 3px;
 }
 
 #admin ul li a{

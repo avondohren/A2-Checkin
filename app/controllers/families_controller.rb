@@ -18,11 +18,6 @@ class FamiliesController < ApplicationController
     @family = Family.new
     @parent = @family.parents.build
     @child = @family.children.build
-    
-    @klasses = []
-    Klass.all.each do |klass|
-      @klasses << [klass.name + " (" + Klass::AGES[klass.min_group_id][0] + " through " + Klass::AGES[klass.max_group_id][0] + ")",klass.id]
-    end
   end
   
   def create
@@ -44,11 +39,6 @@ class FamiliesController < ApplicationController
     authorize
     eventize
     @family = Family.find(params[:id])
-    
-    @klasses = []
-    Klass.all.each do |klass|
-      @klasses << [klass.name + " (" + Klass::AGES[klass.min_group_id][0] + " through " + Klass::AGES[klass.max_group_id][0] + ")",klass.id]
-    end
   end
   
   def update

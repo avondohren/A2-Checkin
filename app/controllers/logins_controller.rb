@@ -1,5 +1,5 @@
 class LoginsController < ApplicationController
-  layout "checkins"
+  layout "family_checkins"
 
   def new
   end

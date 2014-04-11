@@ -2,7 +2,8 @@ class EventsController < ApplicationController
 
   def index
     authorize
-    @events = Event.all
+    @fut_events = Event.where(['date >= ?', Date.today])
+    @past_events = Event.where(['date < ?', Date.today])
   end
   
   def show

@@ -60,4 +60,26 @@ class CheckinsController < ApplicationController
     
     redirect_to(:new_checkin)
   end
+  
+  def new_family
+    authorize
+    eventize
+    @family = Family.new
+    @parent = @family.parents.build
+    @child = @family.children.build
+    
+    respond_to do |format|
+      format.html {render :layout => 'family_checkins'}
+    end
+  end
+  
+  def edit_family
+    authorize
+    eventize
+    @family = Family.find(params[:id])
+    
+    respond_to do |format|
+      format.html {render :layout => 'family_checkins'}
+    end
+  end
 end

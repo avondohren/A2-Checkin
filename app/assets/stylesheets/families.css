@@ -3,6 +3,11 @@
   margin: 0 25px;
 }
 
+#families a.left{
+  width:auto;
+  margin-right: 230px;
+}
+
 #families .inlineb{
   display: inline-block;
   margin: 5px 0;
@@ -12,16 +17,12 @@
   margin: 16px 2px;
 }
 
-#families #add_fields{
-  display: block;
-}
-
 #families .frost{
-  background-color: #D2C6C7;
+  background-color: #DFDFDF;
   border-radius: 7px;
   margin: 5px 0;
 }
 
-.ui-accordion-content{
-  background-color: white;
+#families .links{
+  margin-top: 10px;
 }

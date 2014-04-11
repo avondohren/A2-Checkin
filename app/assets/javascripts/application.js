@@ -21,7 +21,7 @@ $("document").ready(function() {
   });
   
   setTimeout(function(){
-      $("#flash").fadeOut("slow");
+      $("#flash").fadeTo("slow",0);
   },3000);
   
   $( ".accordion" ).accordion({ heightStyle: "content" });
