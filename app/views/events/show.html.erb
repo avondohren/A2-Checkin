@@ -6,8 +6,10 @@
     <p>Time: <%= @event.start_time %></p>
     <p>Duration(Min): <%= @event.duration %></p>
     <%= link_to "Edit Event", edit_event_path(@event.id) %>
-  </div>
-  <div id="attendance_list" class="left column">
+    
+    <br />
+    
+    <h2>Attendees</h2>
     <% if Attendance.where(:event_id => @event.id).present? %>
       <div class="clear" id="attendance">
         <table class="t_attendance">
@@ -36,14 +38,14 @@
     <% end %>
   </div>
   <div id="email" class="left column">
-    <h3>Past Emails</h3>
+    <h2>Past Emails</h2>
     <ul>
       <% @event.emails.each do |e| %>
         <li><%= e.subject %> (<%= e.created_at.in_time_zone("Central Time (US & Canada)").to_formatted_s(:long) %>)</li>
       <% end %>
     </ul>
     
-    <h3>Construct New Communication</h3>
+    <h2>Send New Email</h2>
     <%= form_for @email do |e| %>
       <%= e.hidden_field :event_id, :value => @event.id %>
       <p>

@@ -64,6 +64,7 @@ body {
   height: 25px;
   width: 25px;
   font-size: 0;
+  border-radius: 25px;
 }
 
 .pic_background{
@@ -74,7 +75,7 @@ body {
   background-color: rgba(100,100,100,0.3);
 }
 
-h1{
+h1, h2{
   border-bottom: 2px solid;
 }
 
