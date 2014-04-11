@@ -39,7 +39,7 @@ class CheckinsController < ApplicationController
     if session[:event_id].nil?
       redirect_to(:events)
     else
-      @family = Family.find(session[:family_id])
+      @family = Family.where(:id => session[:family_id]).joins(:children => :klass).select("families.familyname as famname, families.id as fid, children.id as cid, children.firstname as cfname, children.lastname as clname, klasses.name as kname")
     end
   end
   

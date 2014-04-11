@@ -5,14 +5,16 @@
   <tr>
     <th>Event</th>
     <th>Date</th>
-    <th></th>
+    <th>Status</th>
+    <th>Action</th>
   </tr>
 
 <% @fut_events.each do |event| %>
   <tr>
-    <td><%= event.name %></td>
+    <td><%= link_to event.name, event %></td>
     <td><%= event.date.strftime("%a, %b %e, %Y") %></td>
-    <td><%= link_to 'Show', event %></td>
+    <td><%= "Active" if session[:event_id] == event.id %></td>
+    <td><%= session[:event_id] == event.id ? link_to("Deactivate", deactivate_event_path(event.id)) : link_to("Activate", activate_event_path(event.id))%></td>
   </tr>
 <% end %>
 </table>

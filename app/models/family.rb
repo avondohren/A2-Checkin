@@ -17,6 +17,21 @@ class Family < ActiveRecord::Base
   validates :phone, :presence => true, :uniqueness => true, format: { with: /\d{3}-\d{3}-\d{4}/, message: "should be in the format 402-555-1212" }
   validates :alt_phone, :uniqueness => true, format: { with: /\d{3}-\d{3}-\d{4}/, message: "should be in the format 402-555-1212" }, unless: "alt_phone == ''"
   
+  validate :phone_is_unique_from_alt
+  validate :alt_is_unique_from_phone
+  
+  def phone_is_unique_from_alt
+    if Family.exists?(:alt_phone => phone)
+      errors.add(:phone, ' is already in use. Please use another number.')
+    end
+  end
+  
+  def alt_is_unique_from_phone
+    if Family.exists?(:phone => alt_phone)
+      errors.add(:alt_phone, ' is already in use.')
+    end
+  end
+  
   def states
     states = [
             ['AL', 'AL'], 

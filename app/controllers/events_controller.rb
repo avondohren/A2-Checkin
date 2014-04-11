@@ -2,20 +2,17 @@ class EventsController < ApplicationController
 
   def index
     authorize
-    @fut_events = Event.where(['date >= ?', Date.today])
-    @past_events = Event.where(['date < ?', Date.today])
+    @fut_events = Event.where(['date >= ?', Date.today]).order('date ASC')
+    @past_events = Event.where(['date < ?', Date.today]).order('date DESC')
   end
   
   def show
     authorize
     @event = Event.find(params[:id])
     
-    @klasses = Attendance.where(:event_id => @event.id).uniq.pluck(:klass_name)
+    @klasses = Attendance.where(:event_id => @event.id).uniq.pluck(:klass_name).sort_by{|k| k.downcase}
     
     @email = Email.new
-    
-    
-    
   end
 
   def new
@@ -74,6 +71,6 @@ class EventsController < ApplicationController
   def deactivate
     session[:event_id] = nil
     
-    redirect_to(:home)
+    redirect_to(:events)
   end
 end

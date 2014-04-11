@@ -1,7 +1,7 @@
 <h1>Welcome <%= current_user.username %>!</h1>
 
 <% if session[:event_id] %>
-  <p>Current Event: <%= Event.find(session[:event_id]).name %> (<%= link_to("Empty Event", :deactivate_event) %>)</p>
+  <p>Current Event: <%= link_to Event.find(session[:event_id]).name, event_path(session[:event_id]) %> (<%= link_to("Empty Event", :deactivate_event) %>)</p>
 <% else %>
   <p>Current Event: No Active Event (<%= link_to("Choose Event",:events) %>)</p>
 <% end %>

@@ -11,7 +11,7 @@ class LoginsController < ApplicationController
       session[:event_id] = nil
       session[:family_id] = nil
       session[:user_id] = user.id
-      redirect_to(:users)
+      redirect_to(:home)
     else
       flash[:notice] = "Invalid username or password"
       redirect_to(:new_login)
