@@ -44,8 +44,6 @@ class EmailsController < ApplicationController
         emails = Event.where(:id => @event.id).joins(:children => :family).pluck("families.email as femail").uniq
         alt_emails = Event.where(:id => @event.id).joins(:children => :family).pluck("families.alt_email as femail").uniq
         
-        puts (emails + alt_emails).uniq.compact.reject(&:empty?).join(", ")
-        
         (emails + alt_emails).uniq.compact.reject(&:empty?).each do |e|
           SiteMailer.recap(e,@email).deliver
         end
