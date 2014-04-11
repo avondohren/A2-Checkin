@@ -42,7 +42,10 @@ class EmailsController < ApplicationController
       if @email.save
         
         emails = Event.where(:id => @event.id).joins(:children => :family).pluck("families.email as femail").uniq
-        emails.each do |e|
+        alt_emails = Event.where(:id => @event.id).joins(:children => :family).pluck("families.alt_email as femail").uniq
+        
+        
+        (emails + alt_emails).each do |e|
           SiteMailer.recap(e,@email).deliver
         end
         
