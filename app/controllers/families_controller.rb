@@ -58,8 +58,12 @@ class FamiliesController < ApplicationController
     
     if @family.update_attributes(params[:family])
       flash[:notice] = "Family Successfully Updated"
-      session[:family_id] = @family.id
-      redirect_to(:families)
+      if session[:event_id].nil?
+        redirect_to(:families)
+      else
+        session[:family_id] = @family.id
+        redirect_to(:confirm)
+      end
     else
       flash[:notice] = "Please fix errors."
       render "edit"
@@ -79,17 +83,21 @@ class FamiliesController < ApplicationController
     authorize
     eventize
     session[:family_id] = nil
-    redirect_to(:select_families)
+    redirect_to(:home)
   end
   
   def select
     authorize
     eventize
+    
+    session[:family_id] = params[:id]
+    redirect_to(:confirm)
   end
   
   def activate
     authorize
     eventize
+    
     family = Family.find_by_phone(params[:phone])
     
     if family

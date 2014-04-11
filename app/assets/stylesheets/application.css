@@ -25,7 +25,7 @@
 html { height: 100%; }
 
 body {
-  background-color: #7a0010;
+  background-color: darkred;
   background-image: url(http://www.transparenttextures.com/patterns/bright-squares.png);
   /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
   height: 93%;
@@ -33,7 +33,6 @@ body {
 }
 
 #container {
-  
   width: 100%;
   max-width: 900px;
   height: 100;
@@ -44,6 +43,42 @@ body {
   border-radius: 10px;
 }
 
+#checkins #flash{
+  position: absolute;
+  top: 5%;
+  left: 20%;
+  background-color: rgba(29, 204, 34, 0.6);
+  padding: 0 15px;
+}
+
+#flash{
+  position: absolute;
+  top
+  background-color: rgba(255,255,255,0.6);
+  border-radius: 10px;
+  border: 1 solid black;
+}
+
+#hidden_home{
+  position: relative;
+  top: 0;
+  right: 0;
+  height: 25px;
+  width: 25px;
+  font-size: 0;
+}
+
+.pic_background{
+  background-image: url("/assets/paintcans2.jpg");
+}
+
+#hidden_home:hover{
+  background-color: rgba(100,100,100,0.3);
+}
+
+h1,h2,h3,h4,h5,h6{
+  border-bottom: 2px solid;
+}
 
 a {
   color: black;
@@ -80,4 +115,29 @@ select, input, textarea{
 
 .left{
   float: left;
+}
+
+#admin ul{
+list-style-type:none;
+margin:0;
+background-color: darkred;
+padding:10px;
+border-radius: 5px;
+}
+
+#admin ul li
+{
+display:inline;
+background-color: darkred;
+padding: 5px;
+border-radius: 3px;
+}
+
+#admin ul li a{
+  color: white;
+  text-decoration: none;
+}
+
+#admin ul li:hover{
+  background-color: red;
 }

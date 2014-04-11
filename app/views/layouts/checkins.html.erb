@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>A2Checkin - Admin</title>
+  <title>A2Checkin</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
@@ -9,20 +9,10 @@
   <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 </head>
 <body id="<%= params[:controller] %>">
-<div id="container">
-  <%= image_tag("a2kids.png", :alt => "Acts2 Kids", :height => 75) %>
-  <nav id="admin">
-    <ul class="nav">
-      <li><%= link_to("Home",:home) %></li>
-      <li><%= link_to("Checkin",:new_checkin) %></li>
-      <li><%= link_to("Families",:families) %></li>
-      <li><%= link_to("Events",:events) %></li>
-      <li><%= link_to("Emails",:emails) %></li>
-      <li><%= link_to("Classes",:klasses) %></li>
-      <li><%= link_to("Users",:users) %></li>
-      <li><%= link_to("Log Out",login_path(session[:user_id]), :method => :delete) %></li>
-    </ul>
-  </nav>
+<div id="container" class="pic_background">
+  <div id="hidden_home" class="right">
+    <%= link_to("Home", :home) %>
+  </div>
   <div id="content">
     <!-- If a flash message is provided, display it. -->
     <% if flash[:notice] || flash[:alert] %>

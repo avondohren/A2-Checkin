@@ -4,8 +4,8 @@ class Child < ActiveRecord::Base
   
   before_validation :assign_class
   
-  belongs_to :family, :inverse_of => :children
-  belongs_to :klass, :inverse_of => :children
+  belongs_to :family
+  belongs_to :klass
   has_many :attendances
   has_many :events, through: :attendances
   

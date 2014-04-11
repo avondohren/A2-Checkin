@@ -1,6 +1,7 @@
 A2Checkin::Application.routes.draw do
-  root to: 'families#index'
+  root to: 'admins#home'
   
+  get "admins" => 'admins#home', :as => :home
   get "checkins/new" => 'checkins#new', :as => :new_checkin
   post "checkins/new" => 'checkins#activate', :as => :activate_checkin
   get "checkins/confirm" => 'checkins#confirm', :as => :confirm
@@ -8,7 +9,7 @@ A2Checkin::Application.routes.draw do
   get "events/activate/:id" => 'events#activate', :as => :activate_event
   get "events/deactivate" => 'events#deactivate', :as => :deactivate_event
   get "families/switch" => 'families#switch', :as => :switch_family
-  get "families/select" => 'families#select', :as => :select_family
+  get "families/select/:id" => 'families#select', :as => :select_family
   post "families/activate" => 'families#activate', :as => :activate_family
   
   resources :users
@@ -19,5 +20,5 @@ A2Checkin::Application.routes.draw do
   resources :children
   resources :klasses
   resources :events
-  
+  resources :emails, :only => [:index, :show, :new, :create]
 end

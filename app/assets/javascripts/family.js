@@ -1,7 +1,7 @@
 $("document").ready(function() {
   $('body#families form').on('click', '.remove_fields', function (event){
     $(this).prev('input[type=hidden]').val('1');
-    $(this).closest('div').hide();
+    $(this).parent().parent().hide();
     event.preventDefault();
   });
 

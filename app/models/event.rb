@@ -3,6 +3,7 @@ class Event < ActiveRecord::Base
   
   has_many :attendances
   has_many :children, through: :attendances
+  has_many :emails
   
   validates :name, :presence => true
   validates :date, :presence => true

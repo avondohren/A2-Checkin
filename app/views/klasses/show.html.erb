@@ -1,6 +1,5 @@
 <h1>Class Information</h1>
-<h1><%= @klass.name %></h1>
-
-<p>Min Group: <%= @klass.min_group_id %></p>
-<p>Max Group: <%= @klass.max_group_id %></p>
+<p>Name: <%= @klass.name %></p>
+<p>Min Group: <%= Klass::AGES[@klass.min_group_id][0] %></p>
+<p>Max Group: <%= Klass::AGES[@klass.max_group_id][0] %></p>
 <%= link_to "Edit Class", edit_klass_path(@klass.id) %>

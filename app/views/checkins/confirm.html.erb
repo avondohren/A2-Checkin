@@ -1,8 +1,8 @@
 <div id="checkins_confirm">
-  <h1>Confirm</h1>
+  <h1>Who's Here?</h1>
 
-  <h2><%= @family.familyname %></h2>
-  <p><%= link_to("Edit Family", edit_family_path(@family.id)) %></p>
+  <!-- <h2><%= @family.familyname %></h2> -->
+  <p><%= @family.familyname %> family (<%= link_to("Edit Family", edit_family_path(@family.id)) %>)</p>
 
   <%= form_tag confirm_submit_path do %>
     <% @family.children.each do |child| %>
@@ -11,7 +11,7 @@
         <%= label_tag child.name %>
       </p>
     <% end %>
-    <%= submit_tag "Check In" %>
+    <%= link_to("Check In", '#', :class => "new_button right", :id => "submit") %>
   <% end %>
 </div>
 

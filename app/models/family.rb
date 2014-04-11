@@ -1,7 +1,7 @@
 class Family < ActiveRecord::Base
   attr_accessible :address, :alt_email, :alt_phone, :city, :email, :familyname, :phone, :state, :zipcode, :parents_attributes, :children_attributes
   
-  has_many :children, :inverse_of => :family
+  has_many :children
   has_many :parents
   
   accepts_nested_attributes_for :parents, allow_destroy: true

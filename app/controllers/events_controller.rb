@@ -10,6 +10,11 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     
     @klasses = Attendance.where(:event_id => @event.id).uniq.pluck(:klass_name)
+    
+    @email = Email.new
+    
+    
+    
   end
 
   def new
@@ -68,6 +73,6 @@ class EventsController < ApplicationController
   def deactivate
     session[:event_id] = nil
     
-    redirect_to(:events)
+    redirect_to(:home)
   end
 end

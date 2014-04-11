@@ -1,0 +1,14 @@
+/*
+  Place all the styles related to the matching controller here.
+  They will automatically be included in application.css.
+*/
+
+#emails #email_table th{
+  background-color: #363636;
+  color: white;
+  padding: 10px 50px;
+}
+
+#emails #email_table tr:nth-child(odd){
+  background-color: #A09696;
+}

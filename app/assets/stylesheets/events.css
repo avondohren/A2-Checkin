@@ -3,8 +3,6 @@
   border:1px solid black;
 }
 
-
-
 #events .gap{
   line-height: 34px;
 }
@@ -13,3 +11,9 @@
   background-color: #434343;
   color: white;
 }
+
+#events .column{
+  margin: 15px;
+}
+
+#events #event_table

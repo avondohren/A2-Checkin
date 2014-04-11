@@ -1,12 +1,12 @@
 
 <div id="checkin_div">
-  <h1>Check In</h1>
+  <!-- <h1>Check In</h1> -->
 
   <%= form_tag :checkins do %>
     <p>
       <%= label_tag :phone %><br />
       <%= text_field_tag :phone, nil, :class => "phone" %>
-      <%= submit_tag "Log In" %>
+      <%= link_to("Check In", '#', :class => "new_button", :id => "submit") %>
     </p>
   
   <% end %>
