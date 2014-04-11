@@ -43,14 +43,6 @@ body {
   border-radius: 10px;
 }
 
-#checkins #flash{
-  position: absolute;
-  top: 5%;
-  left: 20%;
-  background-color: rgba(29, 204, 34, 0.6);
-  padding: 0 15px;
-}
-
 #flash{
   background-color: rgba(255,255,255,0.6);
   border-radius: 10px;

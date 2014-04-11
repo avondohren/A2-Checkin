@@ -1,10 +1,17 @@
-#checkins #checkins_confirm,
-#checkins #checkin_div{
+#checkins #content{
   margin-top: 15%;
   margin-left: 60%;
   width: 350px;
+  background-color: rgba(255,255,255,0.9);
+  padding-bottom: 35px;
+  border-radius: 10px;
 }
 
 #checkins #flash{
-  position: absolute;
+  background-color: rgba(18,95,176,0.8);
+  min-width: 300px;
+  margin: 0px auto -10px;
+  padding: 0 5px;
+  text-align: center;
+  color: white;
 }
