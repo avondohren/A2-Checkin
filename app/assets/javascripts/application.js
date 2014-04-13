@@ -33,7 +33,7 @@ $("document").ready(function() {
   });
   
   $('#hidden_home').click(function(){
-     window.location.href='/admins';
+     window.location.href='/admin';
   })
 });
 

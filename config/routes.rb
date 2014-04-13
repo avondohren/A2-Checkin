@@ -1,6 +1,6 @@
 A2Checkin::Application.routes.draw do
-  root to: 'admins#home'
-  get "admins" => 'admins#home', :as => :home
+  root to: 'admin#home'
+  get "admin" => 'admin#home', :as => :home
   
   get "checkins/confirm" => 'checkins#confirm', :as => :confirm
   post "checkins/confirm" => 'checkins#submit', :as => :confirm_submit
