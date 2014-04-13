@@ -13,6 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.ui.accordion
+//= require jquery.maskedinput.js
+//= require jquery.sparkline.js
 //= require_tree .
 
 $("document").ready(function() {
