@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.ui.accordion
+//= require jquery.ui.datepicker
 //= require jquery.maskedinput.js
 //= require jquery.sparkline.js
 //= require_tree .
@@ -28,6 +29,7 @@ $("document").ready(function() {
   },3000);
   
   $( ".accordion" ).accordion({ heightStyle: "content" });
+  $( ".datepicker" ).datepicker({ dateFormat: "yy-mm-dd"});
   
   $('#submit').on('click', function(event){
     $(this).closest('form').submit();

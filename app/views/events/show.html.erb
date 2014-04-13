@@ -19,7 +19,7 @@
           </tr>
           <tr>
             <td>Grand Total</td>
-            <td><%= Attendance.where(:event_id => @event.id).count %></td>
+            <td class="tc"><%= Attendance.where(:event_id => @event.id).count %></td>
           </tr>
           <% @klasses.each do |k| %>
             <tr class="gap">
