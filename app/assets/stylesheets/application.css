@@ -108,8 +108,16 @@ select, input, textarea{
   float: left;
 }
 
+.inlineblock{
+  display: inline-block;
+}
+
 .center{
   margin: 0 auto;
+}
+
+.tc{
+  text-align: center;
 }
 
 #admin ul{

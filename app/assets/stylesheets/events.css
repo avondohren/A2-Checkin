@@ -25,3 +25,26 @@
 #events #event_table tr:nth-child(odd){
   background-color: #A09696;
 }
+
+#events #stats{
+  margin-right: 35px;
+}
+
+#events #summary{
+  padding: 10px;
+  border: 1px solid black;
+  background-color: white;
+  display: inline-block;
+}
+
+#events #past_events{
+  overflow-y: auto;
+  padding-right: 20px;
+  height: 200px;
+  display: inline-block;
+}
+
+#events #event_summary{
+  margin-top: 0;
+  font-weight: bolder;
+}

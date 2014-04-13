@@ -3,12 +3,25 @@
   They will automatically be included in application.css.
 */
 
-#emails #email_table th{
+#emails  #email_table th{
   background-color: #363636;
   color: white;
   padding: 5px 50px;
 }
 
+#emails #email_table{
+  background-color: white;
+  border: 1px solid black;
+
+}
+
 #emails #email_table tr:nth-child(odd){
   background-color: #A09696;
+}
+
+#emails #email_div{
+  overflow-y: auto;
+  max-height: 350px;
+  display: inline-block;
+  margin-bottom: 15px;
 }

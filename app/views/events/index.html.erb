@@ -1,6 +1,4 @@
-<h1>Event Admin</h1>
-
-<h3>Future Events</h3>
+<h2>Future Events</h2>
 <table id="event_table">
   <tr>
     <th>Event</th>
@@ -12,30 +10,45 @@
 <% @fut_events.each do |event| %>
   <tr>
     <td><%= link_to event.name, event %></td>
-    <td><%= event.date.strftime("%a, %b %e, %Y") %></td>
-    <td><%= "Active" if session[:event_id] == event.id %></td>
-    <td><%= session[:event_id] == event.id ? link_to("Deactivate", deactivate_event_path(event.id)) : link_to("Activate", activate_event_path(event.id))%></td>
+    <td class="tc"><%= event.date.strftime("%a, %b %e, %Y") %></td>
+    <td class="tc"><%= "Active" if session[:event_id] == event.id %></td>
+    <td class="tc"><%= session[:event_id] == event.id ? link_to("Deactivate", deactivate_event_path(event.id)) : link_to("Activate", activate_event_path(event.id))%></td>
   </tr>
 <% end %>
 </table>
 
 <br />
-<%= link_to 'New Event', new_event_path %>
+<%= link_to 'New Event', new_event_path, :class => "new_button" %>
 <br />
 
-<h3>Past Events</h3>
-<table id="event_table">
-  <tr>
-    <th>Event</th>
-    <th>Date</th>
-    <th></th>
-  </tr>
+<h2>Past Events</h2>
+<div id="summary" class="clear">
+  <p id="event_summary">Summary of Last 10 Events</p>
+  <div id="stats" class="left">
+    <div class='clear'><%= "Avg:   " + (@attendance.inject(:+).to_f / @attendance.size).round(1).to_s %></div>
+    <div class='clear'><%= "Max:   " + @attendance.max.to_s %></div>
+    <div class='clear'><%= "Min:   " + @attendance.min.to_s %></div>
+  </div>
+  <div class="inlineblock left"><div class="inlinebar"><%= @attendance.join(",") %></div>
+    <div class='left'>Older</div>
+    <div class='right'>Newer</div>
+  </div>
+</div>
 
-<% @past_events.each do |event| %>
-  <tr>
-    <td><%= event.name %></td>
-    <td><%= event.date.strftime("%a, %b %e, %Y") %></td>
-    <td><%= link_to 'Show', event %></td>
-  </tr>
-<% end %>
-</table>
+<div id="past_events" class="clear">
+  <table id="event_table">
+    <tr>
+      <th>Event</th>
+      <th>Date</th>
+      <th></th>
+    </tr>
+
+  <% @past_events.each do |event| %>
+    <tr>
+      <td><%= event.name %></td>
+      <td class="tc"><%= event.date.strftime("%a, %b %e, %Y") %></td>
+      <td class="tc"><%= link_to 'Show Details', event %></td>
+    </tr>
+  <% end %>
+  </table>
+</div>

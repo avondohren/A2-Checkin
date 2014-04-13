@@ -2,8 +2,15 @@ class EventsController < ApplicationController
 
   def index
     authorize
+    
     @fut_events = Event.where(['date >= ?', Date.today]).order('date ASC')
     @past_events = Event.where(['date < ?', Date.today]).order('date DESC')
+    @attendance = []
+    
+    @past_events[0..9].reverse.each do |e|
+      @attendance << Attendance.where(:event_id => e.id).count
+    end
+    
   end
   
   def show

@@ -2,4 +2,4 @@
 <p>Name: <%= @klass.name %></p>
 <p>Min Group: <%= Klass::AGES[@klass.min_group_id][0] %></p>
 <p>Max Group: <%= Klass::AGES[@klass.max_group_id][0] %></p>
-<%= link_to "Edit Class", edit_klass_path(@klass.id) %>
+<%= link_to "Edit Class", edit_klass_path(@klass.id), :class => "new_button" %>
