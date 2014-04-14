@@ -2,27 +2,23 @@ class KlassesController < ApplicationController
   before_filter :only => [:index, :show] { |c| c.authorize 'volunteer' }
   before_filter :only => [:new, :create, :edit, :update, :destroy] { |c| c.authorize 'coordinator' }
   
-
+  # List all existing Klasses
   def index
-    authorize('volunteer')
-    
     @klasses = Klass.all
   end
   
+  # Show a specific Klasses details
   def show
-    authorize('volunteer')
     @klass = Klass.find(params[:id])
   end
 
+  # Create a new Klass
   def new
-    authorize('coordinator')
-    
     @klass = Klass.new
   end
   
+  # Save new Klass to DB
   def create
-    authorize('coordinator')
-    
     @klass = Klass.new(params[:klass])
     
     if @klass.save
@@ -34,15 +30,13 @@ class KlassesController < ApplicationController
     end
   end
   
+  # Show form to edit existing Klass
   def edit
-    authorize('coordinator')
-    
     @klass = Klass.find(params[:id])
   end
   
+  # Save updates to existing Klass to DB
   def update
-    authorize('coordinator')
-    
     @klass = Klass.find(params[:id])
     
     if @klass.update_attributes(params[:klass])
@@ -54,9 +48,8 @@ class KlassesController < ApplicationController
     end
   end
   
+  # Delete an existing Klass
   def destroy
-    authorize('coordinator')
-    
     @klass = Klass.find(params[:id])
     @klass.delete
     

@@ -12,7 +12,7 @@ A2Checkin::Application.routes.draw do
   get "events/deactivate" => 'events#deactivate', :as => :deactivate_event
   resources :events
   
-  resources :klasses
+  resources :klasses, :path => "classes"
   
   resources :emails, :only => [:index, :show, :new, :create]
   

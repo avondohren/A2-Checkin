@@ -6,6 +6,7 @@ class Klass < ActiveRecord::Base
   validates :name, :uniqueness => true
   validates :max_group_id, numericality: { :greater_than_or_equal_to => :min_group_id }
 
+  # Ages, helps select which classroom a Child belongs in
   AGES = 
     [['Newborn', 0], 
       ["1's", 1],
@@ -24,6 +25,7 @@ class Klass < ActiveRecord::Base
       ['8th Grade', 14]]
       
 
+  # Returns an array of class names, used to help form fields make sense
   def klasses
     klasses = []
     Klass.all.each do |klass|

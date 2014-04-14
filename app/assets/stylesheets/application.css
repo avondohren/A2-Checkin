@@ -26,7 +26,7 @@
 html { height: 100%; }
 
 body {
-  background-color: darkred;
+  background-color: #8B0000;
   background-image: url(http://www.transparenttextures.com/patterns/bright-squares.png);
   /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
   height: 93%;
@@ -84,7 +84,7 @@ a:hover {text-decoration:underline;}
 
 a.new_button {
   color: white;
-  background-color: darkred;
+  background-color: #8B0000;
   text-decoration:none;
   padding: 7px 15px;
   margin: -7px 4px;
@@ -92,7 +92,7 @@ a.new_button {
 }
 
 a#submit {
-  background-color: green;
+  background-color: #486B46;
 }
 
 select, input, textarea{
@@ -124,7 +124,7 @@ select, input, textarea{
 #admin ul{
   list-style-type:none;
   margin:0;
-  background-color: darkred;
+  background-color: #8B0000;
   padding:10px;
   border-radius: 5px;
 }
@@ -132,7 +132,7 @@ select, input, textarea{
 #admin ul li
 {
   display:inline;
-  background-color: darkred;
+  background-color: #8B0000;
   padding: 5px;
   border-radius: 3px;
 }
@@ -142,6 +142,10 @@ select, input, textarea{
   text-decoration: none;
 }
 
+#admin ul li a .selected{
+  background-color: #353832;
+}
+
 #admin ul li:hover{
-  background-color: red;
+  background-color: #CE0304;
 }

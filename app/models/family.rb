@@ -22,18 +22,23 @@ class Family < ActiveRecord::Base
   
   scope :confirm, joins(:children => :klass).select("families.familyname as famname, families.id as fid, children.id as cid, children.firstname as cfname, children.lastname as clname, klasses.name as kname")
   
+  # Validation method that checks to see if phone number is already present
+  # on another Family
   def phone_is_unique_from_alt
     if Family.exists?(:alt_phone => phone)
       errors.add(:phone, ' is already in use. Please use another number.')
     end
   end
   
+  # Validation method that checks to see if alt_phone number is already present
+  # on another Family
   def alt_is_unique_from_phone
     if Family.exists?(:phone => alt_phone)
       errors.add(:alt_phone, ' is already in use.')
     end
   end
   
+  # State abbreviations. Used in Address form field
   def states
     states = [
             ['AL', 'AL'], 

@@ -45,18 +45,20 @@
       <% end %>
     </ul>
     
-    <h2>Send New Email</h2>
-    <%= form_for @email do |e| %>
-      <%= e.hidden_field :event_id, :value => @event.id %>
-      <p>
-        <%= e.label :subject %>
-        <%= e.text_field :subject, :value => "A2Kidz Recap: " + @event.name %>
-      </p>
-      <p>
-        <%= e.label :content, "Email Message" %><br />
-        <%= e.text_area :content, :value => "\n\nThank you,\nA2 Kidz Leaders"%>
-      </p>
-      <%= e.submit %>
+    <% if @cu.usertype >= User::TYPES['coordinator'] %>
+      <h2>Send New Email</h2>
+      <%= form_for Email.new do |e| %>
+        <%= e.hidden_field :event_id, :value => @event.id %>
+        <p>
+          <%= e.label :subject %>
+          <%= e.text_field :subject, :value => "A2Kidz Recap: " + @event.name %>
+        </p>
+        <p>
+          <%= e.label :content, "Email Message" %><br />
+          <%= e.text_area :content, :value => "\n\nThank you,\nA2 Kidz Leaders"%>
+        </p>
+        <%= e.submit %>
+      <% end %>
     <% end %>
   </div>
 </div>

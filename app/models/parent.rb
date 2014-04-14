@@ -7,10 +7,12 @@ class Parent < ActiveRecord::Base
   validates :lastname, :presence => true
   validates :relationship, :presence => true
   
+  # Returns a string concatenating the first and last names
   def name
     firstname + " " + lastname
   end
   
+  # Array of relation types, used to help form fields make sense
   RELATIONS = 
     [["Mother",0],
     ["Father",1],

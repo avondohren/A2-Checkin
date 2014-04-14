@@ -14,10 +14,12 @@ class Child < ActiveRecord::Base
   validates :birthday, :presence => true
   validates_presence_of :klass_id
   
+  # Returns a string concatenating the first and last names
   def name
     firstname + " " + lastname
   end
   
+  # Assigns an appropriate classroom based on the group_id selected during creation
   def assign_class
     age = self.group_id
     

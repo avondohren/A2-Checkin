@@ -3,26 +3,22 @@ class EmailsController < ApplicationController
   before_filter :only => [:new, :create] { |c| c.authorize 'coordinator' }
   
   
-  # GET /emails
-  # GET /emails.json
+  # list past emails in DESC order
   def index
     @emails = Email.joins(:event).select("emails.*, events.name as ename").order('created_at DESC')
   end
 
-  # GET /emails/1
-  # GET /emails/1.json
+  # Show contents of specific email
   def show
     @email = Email.find(params[:id])
   end
 
-  # GET /emails/new
-  # GET /emails/new.json
+  # Create new email
   def new
     @email = Email.new
   end
 
-  # POST /emails
-  # POST /emails.json
+  # Send email to each family that attended the event
   def create
     @email = Email.new(params[:email])
     @event = Event.find(@email.event_id)

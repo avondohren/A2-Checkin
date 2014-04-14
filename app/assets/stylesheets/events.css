@@ -8,7 +8,7 @@
 }
 
 #events th{
-  background-color: #434343;
+  background-color: #353832;
   color: white;
 }
 
@@ -17,13 +17,13 @@
 }
 
 #events #event_table th{
-  background-color: #363636;
+  background-color: #353832;
   color: white;
   padding: 5px 75px;
 }
 
 #events #event_table tr:nth-child(odd){
-  background-color: #A09696;
+  background-color: #B6B5BB;
 }
 
 #events #stats{

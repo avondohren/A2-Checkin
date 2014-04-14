@@ -2,9 +2,11 @@ class LoginsController < ApplicationController
   before_filter :only => [:destroy] { |c| c.authorize 'all' }
   layout "plain"
 
+  # Show login prompt
   def new
   end
   
+  # Validate user and set session variables
   def create
     user = User.find_by_username(params[:username])
     
@@ -19,6 +21,7 @@ class LoginsController < ApplicationController
     end
   end
   
+  # Destroy session variable for current active user
   def destroy
     session[:user_id] = nil
     redirect_to(:root)
