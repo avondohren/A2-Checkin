@@ -1,5 +1,6 @@
 class LoginsController < ApplicationController
-  layout "family_checkins"
+  before_filter :only => [:destroy] { |c| c.authorize 'all' }
+  layout "plain"
 
   def new
   end
@@ -19,7 +20,6 @@ class LoginsController < ApplicationController
   end
   
   def destroy
-    authorize
     session[:user_id] = nil
     redirect_to(:root)
   end

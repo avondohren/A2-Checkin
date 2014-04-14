@@ -20,6 +20,8 @@ class Family < ActiveRecord::Base
   validate :phone_is_unique_from_alt
   validate :alt_is_unique_from_phone
   
+  scope :confirm, joins(:children => :klass).select("families.familyname as famname, families.id as fid, children.id as cid, children.firstname as cfname, children.lastname as clname, klasses.name as kname")
+  
   def phone_is_unique_from_alt
     if Family.exists?(:alt_phone => phone)
       errors.add(:phone, ' is already in use. Please use another number.')

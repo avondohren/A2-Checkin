@@ -3,16 +3,23 @@ class ApplicationController < ActionController::Base
   
   helper_method :current_user
 
-  def authorize
-    if current_user.nil?
+  def authorize(min_level = 'admin')
+    @user = current_user
+    
+    if @user.nil?
       flash[:notice] = "Please login to continue."
       redirect_to :new_login
+    elsif @user.usertype < User::TYPES[min_level]
+      puts "User " + @user.username + " tried to do something they shouldn't"
+      flash[:notice] = "You do not have access to this feature."
+      redirect_to :back
     end
   end
   
   def eventize
     if session[:event_id].nil?
-      flash[:notice] = "Please activate an Event"
+      flash[:notice] = "Please activate an Event."
+      redirect_to :events
     end
   end
     

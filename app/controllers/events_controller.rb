@@ -1,8 +1,9 @@
 class EventsController < ApplicationController
+  before_filter :only => [:index, :show] { |c| c.authorize 'volunteer' }
+  before_filter :only => [:new, :create, :edit, :update, :destroy] { |c| c.authorize 'coordinator' }
+  before_filter :only => [:activate, :deactivate] { |c| c.authorize 'checkin' }
 
   def index
-    authorize
-    
     @fut_events = Event.where(['date >= ?', Date.today]).order('date ASC')
     @past_events = Event.where(['date < ?', Date.today]).order('date DESC')
     @attendance = []
@@ -10,11 +11,9 @@ class EventsController < ApplicationController
     @past_events[0..9].reverse.each do |e|
       @attendance << Attendance.where(:event_id => e.id).count
     end
-    
   end
   
   def show
-    authorize
     @event = Event.find(params[:id])
     
     @klasses = Attendance.where(:event_id => @event.id).uniq.pluck(:klass_name).sort_by{|k| k.downcase}
@@ -23,12 +22,10 @@ class EventsController < ApplicationController
   end
 
   def new
-    authorize
     @event = Event.new
   end
   
   def create
-    authorize
     @event = Event.new(params[:event])
     
     if @event.save
@@ -41,12 +38,10 @@ class EventsController < ApplicationController
   end
   
   def edit
-    authorize
     @event = Event.find(params[:id])
   end
   
   def update
-    authorize
     @event = Event.find(params[:id])
     
     if @event.update_attributes(params[:event])
@@ -59,7 +54,6 @@ class EventsController < ApplicationController
   end
   
   def destroy
-    authorize
     @event = Event.find(params[:id])
     
     @event.delete
@@ -69,7 +63,6 @@ class EventsController < ApplicationController
   
   def activate
     event = Event.find(params[:id])
-    
     session[:event_id] = event.id
     
     redirect_to(:events)
@@ -77,7 +70,6 @@ class EventsController < ApplicationController
   
   def deactivate
     session[:event_id] = nil
-    
     redirect_to(:events)
   end
 end

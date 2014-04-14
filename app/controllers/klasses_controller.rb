@@ -1,22 +1,28 @@
 class KlassesController < ApplicationController
+  before_filter :only => [:index, :show] { |c| c.authorize 'volunteer' }
+  before_filter :only => [:new, :create, :edit, :update, :destroy] { |c| c.authorize 'coordinator' }
+  
 
   def index
-    authorize
+    authorize('volunteer')
+    
     @klasses = Klass.all
   end
   
   def show
-    authorize
+    authorize('volunteer')
     @klass = Klass.find(params[:id])
   end
 
   def new
-    authorize
+    authorize('coordinator')
+    
     @klass = Klass.new
   end
   
   def create
-    authorize
+    authorize('coordinator')
+    
     @klass = Klass.new(params[:klass])
     
     if @klass.save
@@ -29,12 +35,14 @@ class KlassesController < ApplicationController
   end
   
   def edit
-    authorize
+    authorize('coordinator')
+    
     @klass = Klass.find(params[:id])
   end
   
   def update
-    authorize
+    authorize('coordinator')
+    
     @klass = Klass.find(params[:id])
     
     if @klass.update_attributes(params[:klass])
@@ -47,10 +55,11 @@ class KlassesController < ApplicationController
   end
   
   def destroy
-    authorize
-    @klass = Klass.find(params[:id])
+    authorize('coordinator')
     
+    @klass = Klass.find(params[:id])
     @klass.delete
+    
     flash[:notice] = "Class Deleted"
     redirect_to(:root)
   end

@@ -1,6 +1,6 @@
-<%= form_for @event do |f| %>
-  <% if @event.errors.any? %>
-    <% @event.errors.full_messages.each do |error_msg| %>
+<%= form_for event do |f| %>
+  <% if event.errors.any? %>
+    <% event.errors.full_messages.each do |error_msg| %>
       <p class="form_error"><%= error_msg %></p>
     <% end %>
   <% end %>

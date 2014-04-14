@@ -11,10 +11,15 @@
   </p>
   
   <p class="form_field">
+    <%= f.label :usertype, "Account Type" %><br />
+    <%= f.select(:usertype, User::TYPES, :selected => '25') %>
+  </p>
+  
+  <p class="form_field">
     <%= f.label :password %><br />
     <%= f.password_field :password %>
   </p>
-  
+
   <p class="form_field">
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation %>

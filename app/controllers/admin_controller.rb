@@ -1,8 +1,7 @@
 class AdminController < ApplicationController
+  before_filter { |c| c.authorize 'all' }
 
   def home
-    authorize
-    eventize
     @users = User.all
   end
 end
