@@ -1,0 +1,10 @@
+$("#checkin_div #phone").val("");
+$("#checkin_div #phone").removeData();
+
+$("#wrongpw").slideDown(function() {
+    setTimeout(function() {
+        $("#wrongpw").slideUp();
+    }, 5000);
+});
+
+$("#checkin_div #phone").focus();

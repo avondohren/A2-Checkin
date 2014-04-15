@@ -1,6 +1,8 @@
 class Family < ActiveRecord::Base
   attr_accessible :address, :alt_email, :alt_phone, :city, :email, :familyname, :phone, :state, :zipcode, :parents_attributes, :children_attributes
   
+  before_save :nil_if_blank
+  
   has_many :children
   has_many :parents
   
@@ -20,23 +22,7 @@ class Family < ActiveRecord::Base
   validate :phone_is_unique_from_alt
   validate :alt_is_unique_from_phone
   
-  scope :confirm, joins(:children => :klass).select("families.familyname as famname, families.id as fid, children.id as cid, children.firstname as cfname, children.lastname as clname, klasses.name as kname")
-  
-  # Validation method that checks to see if phone number is already present
-  # on another Family
-  def phone_is_unique_from_alt
-    if Family.exists?(:alt_phone => phone)
-      errors.add(:phone, ' is already in use. Please use another number.')
-    end
-  end
-  
-  # Validation method that checks to see if alt_phone number is already present
-  # on another Family
-  def alt_is_unique_from_phone
-    if Family.exists?(:phone => alt_phone)
-      errors.add(:alt_phone, ' is already in use.')
-    end
-  end
+  scope :confirm, lambda { |fam_id| where(:id => fam_id).joins(:children => :klass).select("families.familyname as famname, families.id as fid, children.id as cid, children.firstname as cfname, children.lastname as clname, klasses.name as kname")}
   
   # State abbreviations. Used in Address form field
   def states
@@ -93,4 +79,27 @@ class Family < ActiveRecord::Base
             ['WI', 'WI'], 
             ['WY', 'WY']]
   end
+  
+  protected
+
+    def nil_if_blank
+      null_attrs = %w( phone, alt_phone, email, alt_email)
+      null_attrs.each { |attr| self[attr] = nil if self[attr].blank? }
+    end
+    
+    # Validation method that checks to see if phone number is already present
+    # on another Family
+    def phone_is_unique_from_alt
+      if Family.exists?(:alt_phone => phone)
+        errors.add(:phone, ' is already in use. Please use another number.')
+      end
+    end
+  
+    # Validation method that checks to see if alt_phone number is already present
+    # on another Family
+    def alt_is_unique_from_phone
+      if Family.exists?(:phone => alt_phone)
+        errors.add(:alt_phone, ' is already in use.')
+      end
+    end
 end

@@ -23,7 +23,7 @@
 }
 
 #events #event_table tr:nth-child(odd){
-  background-color: #B6B5BB;
+  background-color: #C0C0C0;
 }
 
 #events #stats{

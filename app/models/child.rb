@@ -21,13 +21,17 @@ class Child < ActiveRecord::Base
   
   # Assigns an appropriate classroom based on the group_id selected during creation
   def assign_class
-    age = self.group_id
+    if self.group_id
+      age = self.group_id
     
-    Klass.all.each do |c|
-      if age.to_i >= c.min_group_id && age.to_i <= c.max_group_id
-        self.klass_id = c.id
-        break
+      Klass.all.each do |c|
+        if age.to_i >= c.min_group_id && age.to_i <= c.max_group_id
+          self.klass_id = c.id
+          break
+        end
       end
+    else
+      puts "Skipping klass assignment"
     end
   end
 

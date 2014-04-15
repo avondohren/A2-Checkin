@@ -1,0 +1,8 @@
+$("div #content").append("<%= j render :partial => "confirm", :locals => {:families => @family} %>")
+
+$("div #content #checkins_confirm").slideDown();
+
+$("#checkin_div").slideUp();
+
+$("#checkin_div #phone").val("");
+$("#checkin_div #phone").removeData();

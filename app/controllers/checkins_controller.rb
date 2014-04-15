@@ -10,15 +10,33 @@ class CheckinsController < ApplicationController
   
   # Search for the phone number profided and sets result to active family
   def create
-    family = Family.find_by_phone(params[:phone])
-    (family = Family.find_by_alt_phone(params[:phone])) if family.nil?
+    if params[:phone] == ""
+      respond_to do |format|
+        flash[:notice] = "Invalid Phone Number."
+        format.html { redirect_to(:new_checkin) and return}
+        format.js { render 'wrong_pw' and return}
+      end
+    end
     
-    if family
-        session[:family_id] = family.id
-        redirect_to(:confirm)
-    else
-      flash[:notice] = "Invalid Phone Number"
-      redirect_to(:new_checkin)
+    @family = Family.find_by_phone(params[:phone])
+    
+    puts "Family after phone: #{@family}"
+    
+    (@family = Family.find_by_alt_phone(params[:phone])) if @family.nil?
+    
+    puts "Family after alt_phone: #{@family}"
+    
+    respond_to do |format|
+      if @family
+        session[:family_id] = @family.id
+        @family = Family.confirm(@family.id)
+        format.html { redirect_to(:confirm) }
+        format.js
+      else
+        flash[:notice] = "Invalid Phone Number."
+        format.html { redirect_to(:new_checkin) }
+        format.js { render 'wrong_pw'}
+      end
     end
   end
   
@@ -31,7 +49,7 @@ class CheckinsController < ApplicationController
   # Show children for the active family
   def confirm
     # See Family model for definition of .confirm Named Scope
-    @family = Family.where(:id => session[:family_id]).confirm
+    @family = Family.confirm(session[:family_id])
   end
   
   # Checkin selected children to active event
@@ -48,8 +66,13 @@ class CheckinsController < ApplicationController
       end
     end
     
+    session[:family_id] = nil
     flash[:notice] = "Checked in Successfully."
-    redirect_to(:new_checkin)
+    
+    respond_to do |format|
+        format.html { redirect_to(:new_checkin) }
+        format.js
+    end
   end
   
   # Display form to create new family

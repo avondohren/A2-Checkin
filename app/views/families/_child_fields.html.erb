@@ -15,8 +15,13 @@
 
   <div class="left">
     <p class="form_field">
-      <%= f.label :group_id, "Age/Grade" %><br />
-      <%= f.select(:group_id, Klass::AGES) %>
+      <% if f.object.klass_id.nil? %>
+        <%= f.label :group_id, "Age/Grade" %><br />
+        <%= f.select(:group_id, Klass::AGES) %>
+      <% else %>
+        <%= f.label :klass_id, "Class" %><br />
+        <%= f.select(:klass_id, Klass.klasses, :selected => f.object.klass_id) %>
+      <% end %>
     </p>
 
     <p class="form_field">

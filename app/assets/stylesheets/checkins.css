@@ -15,3 +15,46 @@
   text-align: center;
   color: white;
 }
+
+#checkins #success{
+  background-color: rgba(18,95,176,0.8);
+  min-width: 300px;
+  margin: -22px auto 0  px;
+  padding: 0 5px;
+  text-align: center;
+  color: white;
+  border-radius: 6px;
+}
+
+#checkins #wrongpw{
+  background-color: rgba(18,95,176,0.8);
+  min-width: 300px;
+  margin: 0px auto 0px;
+  padding: 0 5px;
+  text-align: center;
+  color: white;
+  border-radius: 6px;
+}
+
+#checkins .hidden{
+  display: none;
+}
+
+#checkins #hidden_home{
+  position: relative;
+  top: 0;
+  right: 0;
+  height: 25px;
+  width: 25px;
+  font-size: 0;
+  border-radius: 25px;
+}
+
+#checkins #hidden_home:hover{
+  background-color: rgba(200,200,200,0.2);
+  border: 1px dashed black;
+}
+
+#checkins .pic_background{
+  background-image: url("/assets/paintcans2.jpg");
+}

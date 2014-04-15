@@ -13,6 +13,8 @@
  *= require_self
  *= require_tree .
  */
+
+/* Clarfix */
 .clear:before,
 .clear:after {
     content: " ";
@@ -23,13 +25,14 @@
     clear: both;
 }
 
+/* Layout Elements */
+
 html { height: 100%; }
 
 body {
-  background-color: #8B0000;
-  background-image: url(http://www.transparenttextures.com/patterns/bright-squares.png);
-  /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
-  height: 93%;
+  background-color: #8b0000;
+  background-image: url(http://www.transparenttextures.com/patterns/skulls.png);
+  /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */height: 93%;
   font-family: 'Open Sans', sans-serif;
 }
 
@@ -38,7 +41,7 @@ body {
   max-width: 900px;
   height: 100;
   min-height: 100%;
-  background-color: rgba(230, 230, 230, 1);
+  background-color: #DCDCDC;
   margin: 0 auto;
   padding: 15px;
   border-radius: 10px;
@@ -50,24 +53,6 @@ body {
   border: 1 solid black;
 }
 
-#hidden_home{
-  position: relative;
-  top: 0;
-  right: 0;
-  height: 25px;
-  width: 25px;
-  font-size: 0;
-  border-radius: 25px;
-}
-
-.pic_background{
-  background-image: url("/assets/paintcans2.jpg");
-}
-
-#hidden_home:hover{
-  background-color: rgba(100,100,100,0.3);
-}
-
 h1, h2{
   border-bottom: 2px solid;
 }
@@ -77,29 +62,6 @@ a {
 }
 
 a:hover {text-decoration:underline;}
-
-.grey {
-  color: grey;
-}
-
-a.new_button {
-  color: white;
-  background-color: #8B0000;
-  text-decoration:none;
-  padding: 7px 15px;
-  margin: -7px 4px;
-  border-radius: 5px;
-}
-
-a#submit {
-  background-color: #486B46;
-}
-
-select, input, textarea{
-  padding: 10px;
-  font-size: 18px;
-  border-radius: 5px;
-}
 
 .right{
   float: right;
@@ -121,12 +83,35 @@ select, input, textarea{
   text-align: center;
 }
 
+/* Project Specific Style*/
+
+a.new_button {
+  color: white;
+  background-color: #8B0000;
+  text-decoration:none;
+  padding: 7px 15px;
+  margin: -7px 4px;
+  border-radius: 5px;
+}
+
+a.submit {
+  background-color: #486B46;
+}
+
+/* Admin Navigation Bar Style */
+
+select, input, textarea{
+  padding: 10px;
+  font-size: 18px;
+  border-radius: 5px;
+}
+
 #admin ul{
   list-style-type:none;
   margin:0;
   background-color: #8B0000;
-  padding:10px;
-  border-radius: 5px;
+  padding:6px;
+  border-radius: 3px;
 }
 
 #admin ul li
@@ -134,16 +119,11 @@ select, input, textarea{
   display:inline;
   background-color: #8B0000;
   padding: 5px;
-  border-radius: 3px;
 }
 
 #admin ul li a{
   color: white;
   text-decoration: none;
-}
-
-#admin ul li a .selected{
-  background-color: #353832;
 }
 
 #admin ul li:hover{

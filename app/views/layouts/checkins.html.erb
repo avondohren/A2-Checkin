@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>A2Checkin - <%= params[:controller].capitalize %></title>
+  <title>A2Checkin - Check In</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
@@ -15,12 +15,8 @@
   </div>
   <div id="content">
     <!-- If a flash message is provided, display it. -->
-    <% if flash[:notice] || flash[:alert] %>
-      <div id="flash">
-        <p id="notice"><%= flash[:notice] %></p>
-        <p id="alert"><%= flash[:alert] %></p>
-      </div>
-    <% end %>
+    <div id="wrongpw" class="hidden">Invalid Phone Number.</div>
+    <div id="success" class="hidden">Checked in Successfully.</div>
   
     <%= yield %>
   </div>

@@ -25,13 +25,13 @@ $("document").ready(function() {
   });
   
   setTimeout(function(){
-      $("#flash").fadeTo("slow",0);
+      $("#flash").fadeTo(5,0);
   },3000);
   
   $( ".accordion" ).accordion({ heightStyle: "content" });
   $( ".datepicker" ).datepicker({ dateFormat: "yy-mm-dd"});
   
-  $('#submit').on('click', function(event){
+  $('#container').on('click', ".submit", function(event){
     $(this).closest('form').submit();
     event.preventDefault();
   });

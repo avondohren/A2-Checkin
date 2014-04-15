@@ -1,0 +1,15 @@
+<div id="checkins_confirm" class="hidden">
+  <h1>Who's Here?</h1>
+
+  <p><%= families[0].famname %> family (<%= link_to('Edit Family', edit_family_checkin_path(families[0].fid)) %>)</p>
+
+  <%= form_tag confirm_submit_path, remote: true do %>
+    <% families.each do |family| %>
+      <p>
+        <%= check_box_tag "children[kid#{family.cid}]", "#{family.cid}" %>
+        <%= label_tag("#{family.cfname} #{family.clname} (#{family.kname})") %>
+      </p>
+    <% end %>
+    <%= link_to('Check In', '#', :class => 'new_button right submit', :id => 'submit') %>
+  <% end %>
+</div>

@@ -1,0 +1,15 @@
+$("div #content #checkins_confirm").slideUp();
+$("div #content #checkins_confirm").delay(500).remove();
+
+$("#checkin_div").slideDown();
+
+$("#checkin_div #phone").val("");
+$("#checkin_div #phone").removeData();
+
+$("#checkin_div #phone").focus();
+
+$("#checkins #success").slideDown(function() {
+    setTimeout(function() {
+        $("#success").slideUp();
+    }, 5000);
+});

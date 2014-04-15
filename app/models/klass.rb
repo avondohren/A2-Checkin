@@ -26,7 +26,7 @@ class Klass < ActiveRecord::Base
       
 
   # Returns an array of class names, used to help form fields make sense
-  def klasses
+  def self.klasses
     klasses = []
     Klass.all.each do |klass|
       klasses << [klass.name + " (" + Klass::AGES[klass.min_group_id][0] + " through " + Klass::AGES[klass.max_group_id][0] + ")",klass.id]

@@ -1,6 +1,6 @@
-<%= form_for @family do |f| %>
-  <% if @family.errors.any? %>
-    <% @family.errors.full_messages.each do |error_msg| %>
+<%= form_for family do |f| %>
+  <% if family.errors.any? %>
+    <% family.errors.full_messages.each do |error_msg| %>
       <p class="form_error"><%= error_msg %></p>
     <% end %>
   <% end %>
@@ -87,7 +87,7 @@
       <div class="clear links">
         <%= link_to("Back", '#', class: "left", id: "next_par") %>
         <%= link_to_add_fields "Add Child", f, :children %>
-        <%= link_to("Save & Check-in", '#', :class => "new_button right", :id => "submit") %>
+        <%= link_to("Save & Check-in", '#', :class => "new_button submit right") %>
       </div>
     </div>
   </div>

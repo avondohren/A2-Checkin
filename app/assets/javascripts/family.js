@@ -9,6 +9,7 @@ $("document").ready(function() {
     time = new Date().getTime();
     regexp = new RegExp($(this).data('id'), 'g');
     $(this).parent().prev().append($(this).data('fields').replace(regexp, time));
+    $(".date").mask("9999/99/99");
     event.preventDefault();
   });
   
