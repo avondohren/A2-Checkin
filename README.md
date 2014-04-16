@@ -17,7 +17,7 @@ Admins of the system are given the following abilities:
  - Create and Edit family information
  - Email families that attended an event to distribute summaries and activities to parents
  
-##Future Features
-This is a list of features I would like to add:
+##Future Enhancements
+This is a list of enhancements I would like to add:
  - Print a name tag for each present child using a Dymo label printer
  - Assign Roles to Events, and assign a specific volunteer to fill the role
