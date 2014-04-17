@@ -10,7 +10,6 @@ class ApplicationController < ActionController::Base
       flash[:notice] = "Please login to continue."
       redirect_to :new_login
     elsif @user.usertype < User::TYPES[min_level]
-      puts "User " + @user.username + " tried to do something they shouldn't"
       flash[:notice] = "You do not have access to this feature."
       redirect_to :back
     end

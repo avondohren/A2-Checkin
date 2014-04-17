@@ -19,12 +19,7 @@ class CheckinsController < ApplicationController
     end
     
     @family = Family.find_by_phone(params[:phone])
-    
-    puts "Family after phone: #{@family}"
-    
     (@family = Family.find_by_alt_phone(params[:phone])) if @family.nil?
-    
-    puts "Family after alt_phone: #{@family}"
     
     respond_to do |format|
       if @family

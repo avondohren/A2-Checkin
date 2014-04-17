@@ -27,8 +27,14 @@ class FamiliesController < ApplicationController
 
     if @family.save
       flash[:notice] = "Family Successfully Created"
-      session[:family_id] = @family.id
-      redirect_to(:confirm)
+      
+      # If there is an active event, go to :confirm page
+      if session[:event_id].nil?
+        redirect_to(:families)
+      else
+        session[:family_id] = @family.id
+        redirect_to(:confirm)
+      end
     else
       flash[:notice] = "Please fix errors."
       render "new"
@@ -67,7 +73,7 @@ class FamiliesController < ApplicationController
     redirect_to(:root)
   end
   
-  # Deactivate active Family, used in 'checkin' controller
+  # Deactivate active Family, used in 'admin#home'
   def switch
     session[:family_id] = nil
     redirect_to(:home)
