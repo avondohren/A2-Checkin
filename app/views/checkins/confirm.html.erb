@@ -1,5 +1,16 @@
 <div id="checkins_confirm">
   <h1>Who's Here?</h1>
+  
+  <% if ENV['DEMO_STATUS'] == "TRUE" && session[:tour_id] == 3 %>
+    <div class="demo">
+      <h3>Product Tour Cont.</h3>
+      <ol>
+        <li>Mark all of your kids as present</li>
+        <li>Click 'Check In'</li>
+      </ol>
+    </div>
+    <% session[:tour_id] = 4 %>
+  <% end %>
 
   <p><%= @family[0].famname %> family (<%= link_to("Edit Family", edit_family_checkin_path(@family[0].fid)) %>)</p>
 

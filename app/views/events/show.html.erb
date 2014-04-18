@@ -38,6 +38,32 @@
     <% end %>
   </div>
   <div id="email" class="left column">
+    
+    <% if ENV['DEMO_STATUS'] == "TRUE" && session[:tour_id] == 7 %>
+      <div class="demo demo_event">
+        <h3>Product Tour Cont.</h3>
+        <p>You see the email you just sent in the 'Past Emails' section</p>
+        <ol>
+          <li>Click on 'Home' in the navigation menu</li>
+        </ol>
+      </div>
+      <% session[:tour_id] = 8 %>
+    <% end %>
+    
+    <% if ENV['DEMO_STATUS'] == "TRUE" && session[:tour_id] == 6 %>
+      <div class="demo demo_event">
+        <h3>Product Tour Cont.</h3>
+        <p>Here you will find all of the event details.</p>
+        <p>In the left column, you can see that your children in addition to 'Lucy Sample1' are in attendance. You can also notice that your children were automatically assigned to a classroom.</p>
+        <p>From this screen, you can send an email message. This message goes to the parents of any children in attendance for this event. Since this is a demo site, no actual emails will be sent.</p>
+        <ol>
+          <li>Type in an email message</li>
+          <li>Click 'Create Email'</li>
+        </ol>
+      </div>
+      <% session[:tour_id] = 7 %>
+    <% end %>
+    
     <h2>Past Emails</h2>
     <ul>
       <% @event.emails.each do |e| %>

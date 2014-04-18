@@ -12,7 +12,7 @@
   
   <p class="form_field">
     <%= f.label :usertype, "Account Type" %><br />
-    <%= f.select(:usertype, User::TYPES, :selected => '25') %>
+    <%= f.select(:usertype, User::TYPES, :selected => f.object.usertype) %>
   </p>
   
   <p class="form_field">

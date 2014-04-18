@@ -12,4 +12,9 @@ ActionMailer::Base.smtp_settings = {
 
 ActionMailer::Base.default_url_options[:host] = ENV['MAIL_HOST_URL'] || "localhost:5000"
 
-ActionMailer::Base.register_interceptor(DevelopmentMailInterceptor) if Rails.env.development?
+
+if ENV['DEMO_STATUS'] == "TRUE"
+  ActionMailer::Base.register_interceptor(DevelopmentMailInterceptor)
+else
+  ActionMailer::Base.register_interceptor(DevelopmentMailInterceptor) if Rails.env.development?
+end

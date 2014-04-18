@@ -1,0 +1,3 @@
+$("a.switch#<%= @event.id %>").parent().html("<%= j link_to("Activate", activate_event_path(@event.id), class: "switch", id: "#{@event.id}", :remote => true) %>");
+
+$("a.switch#<%= @event.id %>").parent().prev("td").html("");

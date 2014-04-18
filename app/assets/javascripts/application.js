@@ -35,9 +35,5 @@ $("document").ready(function() {
     $(this).closest('form').submit();
     event.preventDefault();
   });
-  
-  $('#hidden_home').click(function(){
-     window.location.href='/admin';
-  })
 });
 

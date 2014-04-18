@@ -8,8 +8,9 @@ A2Checkin::Application.routes.draw do
   get "checkins/edit_family/:id" => 'checkins#edit_family', :as => :edit_family_checkin
   resources :checkins, :only => [:new, :create, :destroy]
   
+  get "events/switch/:id" => 'events#switch', :as => :switch_event
   get "events/activate/:id" => 'events#activate', :as => :activate_event
-  get "events/deactivate" => 'events#deactivate', :as => :deactivate_event
+  get "events/deactivate/:id" => 'events#deactivate', :as => :deactivate_event
   resources :events
   
   resources :klasses, :path => "classes"

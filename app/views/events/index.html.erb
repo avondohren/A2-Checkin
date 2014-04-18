@@ -1,4 +1,17 @@
+<% if ENV['DEMO_STATUS'] == "TRUE" && session[:tour_id] == 0 %>
+  <div class="demo">
+    <h3>Product Tour Cont.</h3>
+    <ol>
+      <li>Activate an Event by clicking 'Activate' next to a Future Event</li>
+      <li>Click 'Checkin' in the navigation menu above</li>
+    </ol>
+  </div>
+  <% session[:tour_id] = 1 %>
+<% end %>
+
 <h2>Future Events</h2>
+<p>Current Event: <%= session[:event_id] %></p>
+
 <table id="event_table">
   <tr>
     <th>Event</th>
@@ -9,10 +22,10 @@
 
 <% @fut_events.each do |event| %>
   <tr>
-    <td><%= link_to event.name, event %></td>
+    <td><%= link_to event.name, event %> <%= event.id %></td>
     <td class="tc"><%= event.date.strftime("%a, %b %e, %Y") %></td>
-    <td class="tc"><%= "Active" if session[:event_id] == event.id %></td>
-    <td class="tc"><%= session[:event_id] == event.id ? link_to("Deactivate", deactivate_event_path(event.id)) : link_to("Activate", activate_event_path(event.id)) if @cu.usertype >= User::TYPES['checkin'] %></td>
+    <td class="tc" id="status"><%= "Active" if session[:event_id].to_i == event.id %></td>
+    <td class="tc"><%= session[:event_id].to_i == event.id ? link_to("Deactivate", deactivate_event_path(event.id), class: "switch active", id: "#{event.id}", :remote => true) : link_to("Activate", activate_event_path(event.id), class: "switch", id: "#{event.id}", :remote => true) if @cu.usertype >= User::TYPES['checkin'] %></td>
   </tr>
 <% end %>
 </table>

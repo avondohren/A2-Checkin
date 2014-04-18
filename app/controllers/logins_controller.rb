@@ -24,6 +24,9 @@ class LoginsController < ApplicationController
   # Destroy session variable for current active user
   def destroy
     session[:user_id] = nil
+    session[:family_id] = nil
+    session[:event_id] = nil
+    session[:tour_id] = nil
     redirect_to(:root)
   end
 end

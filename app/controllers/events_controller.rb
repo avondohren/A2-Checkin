@@ -70,15 +70,33 @@ class EventsController < ApplicationController
   
   # Set an event as Active, this status is used by the 'checkin' controller
   def activate
-    event = Event.find(params[:id])
-    session[:event_id] = event.id
+    @prev = session[:event_id] if session[:event_id]
+    session[:event_id] = params[:id]
     
-    redirect_to(:events)
+    respond_to do |format|
+        format.html { redirect_to(:events) }
+        format.js
+    end
   end
   
   # Deactivate an event, will remove the active status
   def deactivate
     session[:event_id] = nil
-    redirect_to(:events)
+    @event=Event.find(params[:id])
+    
+    respond_to do |format|
+        format.html { redirect_to(:events) }
+        format.js
+    end
+  end
+  
+  def switch
+    @prev = session[:event_id] if session[:event_id]
+    session[:event_id] = params[:id]
+    
+    respond_to do |format|
+        format.html { redirect_to(:events) }
+        format.js
+    end
   end
 end

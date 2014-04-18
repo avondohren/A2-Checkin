@@ -1,0 +1,7 @@
+<% if @prev != nil %>
+  $("a#<%= @prev %>").html("<%= j link_to("Activate", activate_event_path(@prev), class: "switch", id: "#{@prev}", :remote => true) %>");
+  $("a#<%= @prev %>").parent().prev("td").html("");
+<% end %>
+
+$("a#<%= session[:event_id] %>").html("<%= j link_to("Deactivate", deactivate_event_path(session[:event_id]), class: "switch active", id: "#{session[:event_id]}", :remote => true) %>");
+$("a#<%= session[:event_id] %>").parent().prev("td").html("Active");

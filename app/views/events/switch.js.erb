@@ -1,0 +1,6 @@
+$("td#status").html("");
+$("a.active").html("Activate");
+$("a.active").removeClass("active");
+
+$("a.switch#<%= session[:event_id] %>").addClass("active");
+$("a.switch#<%= session[:event_id] %>").parent().prev().html("Active");

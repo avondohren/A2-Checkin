@@ -1,3 +1,28 @@
+<% if ENV['DEMO_STATUS'] == "TRUE" && session[:tour_id] == 1 %>
+  <div class="demo">
+    <h3>Product Tour Cont.</h3>
+    <ol>
+      <li>Type in a Phone Number</li>
+        <ul><li>try 402-111-1111</li></ul>
+      <li>Mark that 'Lucy' came with Sample1 family today</li>
+      <li>Click 'Check In'</li>
+      <li>Now Click 'New Family'</li>
+    </ol>
+  </div>
+  <% session[:tour_id] = 2 %>
+<% end %>
+
+<% if ENV['DEMO_STATUS'] == "TRUE" && session[:tour_id] == 4 %>
+  <div class="demo" id="show_hid"></div>
+  <div class="demo">
+    <h3>Product Tour Cont.</h3>
+    <ol>
+      <li>Click on the "Hidden" admin button highlighted in the upper right corner</li>
+    </ol>
+  </div>
+  <% session[:tour_id] = 5 %>
+<% end %>
+
 <div id="checkin_div">
   <!-- <h1>Check In</h1> -->
 

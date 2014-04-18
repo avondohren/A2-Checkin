@@ -9,6 +9,11 @@
   <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 </head>
 <body id="<%= params[:controller] %>">
+<% if ENV['DEMO_STATUS'] == "TRUE" %>
+  <div class="demo_ribbon">
+    <%= image_tag("left-demo-ribbon.png", :alt => "DEMO SITE") %>
+  </div>
+<% end %>
 <div id="container">
   <%= link_to image_tag("a2kids.png", :alt => "Acts2 Kids", :height => 75), :root %>
   <nav id="admin">

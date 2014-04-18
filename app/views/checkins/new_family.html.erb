@@ -1,4 +1,13 @@
 <h1>New Family</h1>
 <h2>Please provide some general information about your family</h2>
 
+<% if ENV['DEMO_STATUS'] == "TRUE" && session[:tour_id] == 2 %>
+  <div class="demo">
+    <h3>Product Tour Cont.</h3>
+    <p>This is a form a new family would fill out during their first visit to the church. You can fill it out however you want, but make sure you have at least 1 parent, and 1 child.</p>
+    <p>When you're ready, click 'Save & Check In' on the child tab.</p>
+  </div>
+  <% session[:tour_id] = 3 %>
+<% end %>
+
 <%= render :partial => '/families/form', :locals => {:family => @family, :child => @child, :parent => @parent} %>

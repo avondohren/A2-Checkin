@@ -9,6 +9,11 @@
   <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 </head>
 <body id="families">
+<% if ENV['DEMO_STATUS'] == "TRUE" %>
+  <div class="demo_ribbon">
+    <%= image_tag("left-demo-ribbon.png", :alt => "DEMO SITE") %>
+  </div>
+<% end %>
 <div id="container">
   <div id="content">
     <!-- If a flash message is provided, display it. -->
