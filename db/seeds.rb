@@ -2,19 +2,19 @@
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
 #
 
-  User.create(:username => "admin", :usertype => 99, :password => "jesussaves", :password_confirmation => "jesussaves")
+  User.create(:username => "admin", :usertype => 99, :password => ENV['DEFAULT_PW'], :password_confirmation => ENV['DEFAULT_PW'])
 
-if ENV['RACK_ENV'] = "development"
+if ENV['RAILS_ENV'] = "development" || ENV['DEMO_STATUS'] == "TRUE"
   # Users, 1 for each TYPES
-  User.create(:username => "coord", :usertype => 75, :password => "jesussaves", :password_confirmation => "jesussaves")
+  User.create(:username => "coord", :usertype => 75, :password => ENV['DEFAULT_PW'], :password_confirmation => ENV['DEFAULT_PW'])
   
-  User.create(:username => "pastor", :usertype => 60, :password => "jesussaves", :password_confirmation => "jesussaves")
+  User.create(:username => "pastor", :usertype => 60, :password => ENV['DEFAULT_PW'], :password_confirmation => ENV['DEFAULT_PW'])
   
-  User.create(:username => "checkin", :usertype => 40, :password => "jesussaves", :password_confirmation => "jesussaves")
+  User.create(:username => "checkin", :usertype => 40, :password => ENV['DEFAULT_PW'], :password_confirmation => ENV['DEFAULT_PW'])
   
-  User.create(:username => "volunteer", :usertype => 25, :password => "jesussaves", :password_confirmation => "jesussaves")
+  User.create(:username => "volunteer", :usertype => 25, :password => ENV['DEFAULT_PW'], :password_confirmation => ENV['DEFAULT_PW'])
   
-  User.create(:username => "all", :usertype => 0, :password => "jesussaves", :password_confirmation => "jesussaves")
+  User.create(:username => "all", :usertype => 0, :password => ENV['DEFAULT_PW'], :password_confirmation => ENV['DEFAULT_PW'])
 
   # Klasses
   Klass.create({name: "Nursery", min_group_id: 0, max_group_id: 1})
