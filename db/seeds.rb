@@ -2,9 +2,11 @@
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
 #
 
-  User.create(:username => "admin", :usertype => 99, :password => ENV['DEFAULT_PW'], :password_confirmation => ENV['DEFAULT_PW'])
+# Admin Account - always create
+User.create(:username => "admin", :usertype => 99, :password => ENV['DEFAULT_PW'], :password_confirmation => ENV['DEFAULT_PW'])
 
 if ENV['RAILS_ENV'] = "development" || ENV['DEMO_STATUS'] == "TRUE"
+  puts "running development things"
   # Users, 1 for each TYPES
   User.create(:username => "coord", :usertype => 75, :password => ENV['DEFAULT_PW'], :password_confirmation => ENV['DEFAULT_PW'])
   
