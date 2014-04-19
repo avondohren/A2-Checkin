@@ -1,4 +1,3 @@
-  
     // any label layout is a simple layout with one Text object
     var dieCutLabelLayout = '<?xml version="1.0" encoding="utf-8"?>\
 <DieCutLabel Version="8.0" Units="twips">\
