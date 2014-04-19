@@ -2,6 +2,7 @@ class Parent < ActiveRecord::Base
   attr_accessible :family_id, :firstname, :lastname, :relationship
   
   belongs_to :family
+  has_many :children, through: :family
   
   validates :firstname, :presence => true
   validates :lastname, :presence => true

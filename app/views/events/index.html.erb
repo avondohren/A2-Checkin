@@ -10,7 +10,6 @@
 <% end %>
 
 <h2>Future Events</h2>
-<p>Current Event: <%= session[:event_id] %></p>
 
 <table id="event_table">
   <tr>
@@ -22,7 +21,7 @@
 
 <% @fut_events.each do |event| %>
   <tr>
-    <td><%= link_to event.name, event %> <%= event.id %></td>
+    <td><%= link_to event.name, event %></td>
     <td class="tc"><%= event.date.strftime("%a, %b %e, %Y") %></td>
     <td class="tc" id="status"><%= "Active" if session[:event_id].to_i == event.id %></td>
     <td class="tc"><%= session[:event_id].to_i == event.id ? link_to("Deactivate", deactivate_event_path(event.id), class: "switch active", id: "#{event.id}", :remote => true) : link_to("Activate", activate_event_path(event.id), class: "switch", id: "#{event.id}", :remote => true) if @cu.usertype >= User::TYPES['checkin'] %></td>

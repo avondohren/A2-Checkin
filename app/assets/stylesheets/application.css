@@ -51,6 +51,7 @@ body {
   background-color: rgba(255,255,255,0.6);
   border-radius: 10px;
   border: 1 solid black;
+  padding-left: 15px;
 }
 
 h1, h2{

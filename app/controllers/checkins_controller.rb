@@ -49,10 +49,15 @@ class CheckinsController < ApplicationController
   
   # Checkin selected children to active event
   def submit
+    puts "PATH: #{URI(request.referer).path}"
+    
     event_id = session[:event_id]
+    @labels = []
     
     params[:children].each do |p|
       kid = Child.find(p[1])
+      
+      @labels << {:fname => kid.firstname, :lname => kid.lastname, :cname => kid.klass.name, :parents => kid.parent_names}
       
       # Ignore if Child is already checked into this Event
       if Attendance.where(["child_id = ? and event_id = ? and klass_name = ?", kid.id, session[:event_id], kid.klass.name]).blank?
@@ -61,8 +66,11 @@ class CheckinsController < ApplicationController
       end
     end
     
+    if URI(request.referer).path == '/checkins/confirm'
+      flash[:notice] = "Checked in Successfully."
+    end
+    
     session[:family_id] = nil
-    flash[:notice] = "Checked in Successfully."
     
     respond_to do |format|
         format.html { redirect_to(:new_checkin) }

@@ -1,15 +1,23 @@
-$("div #content #checkins_confirm").slideUp();
-$("div #content #checkins_confirm").delay(500).remove();
+<% @labels.each do |l| %>
+  printlabel("<%= l[:fname] %>", "<%= l[:lname] %>", "<%= l[:cname] %>", "<%= l[:parents] %>");
+<% end %>
 
-$("#checkin_div").slideDown();
+<% if URI(request.referer).path == '/checkins/confirm' %>
+  window.location = '/checkins/new';
+<% else %>
+  $("div #content #checkins_confirm").slideUp();
+  $("div #content #checkins_confirm").delay(500).remove();
 
-$("#checkin_div #phone").val("");
-$("#checkin_div #phone").removeData();
+  $("#checkin_div").slideDown();
 
-$("#checkin_div #phone").focus();
+  $("#checkin_div #phone").val("");
+  $("#checkin_div #phone").removeData();
 
-$("#checkins #success").slideDown(function() {
-    setTimeout(function() {
-        $("#success").slideUp();
-    }, 5000);
-});
+  $("#checkin_div #phone").focus();
+
+  $("#checkins #success").slideDown(function() {
+      setTimeout(function() {
+          $("#success").slideUp();
+      }, 5000);
+  });
+<% end %>

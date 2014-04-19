@@ -8,6 +8,7 @@ class Child < ActiveRecord::Base
   belongs_to :klass
   has_many :attendances
   has_many :events, through: :attendances
+  has_many :parents, through: :family
   
   validates :firstname, :presence => true
   validates :lastname, :presence => true
@@ -17,6 +18,16 @@ class Child < ActiveRecord::Base
   # Returns a string concatenating the first and last names
   def name
     firstname + " " + lastname
+  end
+  
+  def parent_names
+    array = []
+    
+    self.parents.each do |p|
+      array << p.firstname
+    end
+    
+    array.join(", ")
   end
   
   # Assigns an appropriate classroom based on the group_id selected during creation

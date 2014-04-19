@@ -1,4 +1,8 @@
-<div id="login">
+<div id="logo" class="clear">
+  <%= image_tag("a2kids.png", :class => "center", :alt => "Acts2 Kids", :height => 125) %>
+</div>
+
+<div id="login" class="clear">
   <h1>Log In</h1>
 
   <% if ENV['DEMO_STATUS'] == "TRUE" %>
@@ -11,14 +15,14 @@
   <%= form_tag logins_path do %>
     <p>
       <%= label_tag :username %><br />
-      <%= text_field_tag :username %>
+      <%= text_field_tag :username, nil, size: 37 %>
     </p>
   
     <p>
       <%= label_tag :password %><br />
-      <%= password_field_tag :password %>
+      <%= password_field_tag :password, nil, size: 37 %>
     </p>
   
-    <%= submit_tag "Log In" %>
+    <%= link_to("Log In", '#', :class => "new_button submit right") %>
   <% end %>
 </div>
