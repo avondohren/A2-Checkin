@@ -83,8 +83,13 @@ class Family < ActiveRecord::Base
   protected
 
     def nil_if_blank
-      null_attrs = %w( phone, alt_phone, email, alt_email)
-      null_attrs.each { |attr| self[attr] = nil if self[attr].blank? }
+      null_attrs = ["phone", "alt_phone", "email", "alt_email"]
+      null_attrs.each do |attr| 
+        puts "#{attr} is blank, swapping with nil"
+        if self.send(attr.to_sym).blank?
+          self.send("#{attr}=".to_sym, nil)
+        end
+      end
     end
     
     # Validation method that checks to see if phone number is already present

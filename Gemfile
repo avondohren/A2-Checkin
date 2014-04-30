@@ -39,4 +39,5 @@ gem 'unicorn'
 # To use debugger
 # gem 'debugger'
 
-gem 'googlecharts'
+gem 'lol_dba'
+gem 'consistency_fail'

@@ -12,17 +12,15 @@
     </div>
   <% end %>
 
-  <%= form_tag logins_path do %>
+  <%= form_tag :logins do %>
     <p>
       <%= label_tag :username %><br />
-      <%= text_field_tag :username, nil, size: 37 %>
+      <%= text_field_tag :username, nil, size: 37, :autofocus => true %>
     </p>
-  
     <p>
       <%= label_tag :password %><br />
       <%= password_field_tag :password, nil, size: 37 %>
     </p>
-  
     <%= link_to("Log In", '#', :class => "new_button submit right") %>
   <% end %>
 </div>
