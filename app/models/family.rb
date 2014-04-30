@@ -14,8 +14,10 @@ class Family < ActiveRecord::Base
   validates :state, :presence => true
   validates :city, :presence => true
   validates_format_of :zipcode, :with => /^\d{5}?$/, :message => "should be in the form 12345"
+  
   validates :email, :presence => true, :format => { :with => /.+@.+\..+/i }
   validates :alt_email, :format => { :with => /.+@.+\..+/i }, unless: "alt_email == ''"
+  
   validates :phone, :presence => true, :uniqueness => true, format: { with: /\d{3}-\d{3}-\d{4}/, message: "should be in the format 402-555-1212" }
   validates :alt_phone, :uniqueness => true, format: { with: /\d{3}-\d{3}-\d{4}/, message: "should be in the format 402-555-1212" }, unless: "alt_phone == ''"
   
@@ -82,6 +84,7 @@ class Family < ActiveRecord::Base
   
   protected
 
+    # Replaces empty string values with nil for key values
     def nil_if_blank
       null_attrs = ["phone", "alt_phone", "email", "alt_email"]
       null_attrs.each do |attr| 
