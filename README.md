@@ -21,3 +21,4 @@ Admins of the system are given the following abilities:
 This is a list of enhancements I would like to add:
  - Print a name tag for each present child using a Dymo label printer
  - Assign Roles to Events, and assign a specific volunteer to fill the role
+ - Add ability to communicate with volunteers and distribute teaching material
