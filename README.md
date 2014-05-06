@@ -1,5 +1,7 @@
 #A2 Checkin
 
+***Now Featuring Dymo Label Printed Name Tags!***
+
 ##Overview
 The A2 Checkin program was created to help facilitate checkin during events at the Acts2 Church in Gretna, NE. It works by creating events and then looking up registered families by having them type in thier phone number. A list of children that belong to that family is presented to the user. They confirm which children are present on that day and add records in the database to keep an accurate history of past events.
 
@@ -16,9 +18,14 @@ Admins of the system are given the following abilities:
  - See attendance metrics from past Events
  - Create and Edit family information
  - Email families that attended an event to distribute summaries and activities to parents
- 
+
+##Key Technical Achievements
+ - Incorporation of JavaScript Dymo print libraries
+ - Complex Familiy model, families have parents, families have children
+ - SendGrid configuration for sending email
+ - Multiple user types with permissions (from *coordinator* down to *volunteer*)
+
 ##Future Enhancements
 This is a list of enhancements I would like to add:
- - Print a name tag for each present child using a Dymo label printer
  - Assign Roles to Events, and assign a specific volunteer to fill the role
  - Add ability to communicate with volunteers and distribute teaching material
