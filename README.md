@@ -20,6 +20,7 @@ Admins of the system are given the following abilities:
  - Email families that attended an event to distribute summaries and activities to parents
 
 ##Key Technical Achievements
+These are some of the technical achievements from the project:
  - Incorporation of JavaScript Dymo print libraries
  - Complex Familiy model, families have parents, families have children
  - SendGrid configuration for sending email
