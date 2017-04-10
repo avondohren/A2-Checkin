@@ -6,7 +6,7 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
-  
+
   <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 </head>
 <body id="<%= params[:controller] %>">
@@ -20,7 +20,7 @@
     <%= link_to("Home", :home) %>
   </div>
   <%= image_tag("a2kids.png", :class => "right", :alt => "Acts2 Kids", :height => 125) %>
-  
+
   <div id="content">
     <!-- If a flash message is provided, display it. -->
     <% if flash[:notice] || flash[:alert] %>
@@ -30,7 +30,7 @@
     <% end %>
     <div id="wrongpw" class="hidden">Invalid Phone Number.</div>
     <div id="success" class="hidden">Checked in Successfully.</div>
-  
+
     <%= yield %>
   </div>
 </div>

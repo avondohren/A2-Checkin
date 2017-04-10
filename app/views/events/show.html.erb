@@ -6,9 +6,9 @@
     <p>Time: <%= @event.start_time %></p>
     <p>Duration(Min): <%= @event.duration %></p>
     <%= link_to "Edit Event", edit_event_path(@event.id), :class => "new_button" %>
-    
+
     <br />
-    
+
     <h2>Attendees</h2>
     <% if Attendance.where(:event_id => @event.id).present? %>
       <div class="clear" id="attendance">
@@ -38,7 +38,7 @@
     <% end %>
   </div>
   <div id="email" class="left column">
-    
+
     <% if ENV['DEMO_STATUS'] == "TRUE" && session[:tour_id] == 7 %>
       <div class="demo demo_event">
         <h3>Product Tour Cont.</h3>
@@ -49,7 +49,7 @@
       </div>
       <% session[:tour_id] = 8 %>
     <% end %>
-    
+
     <% if ENV['DEMO_STATUS'] == "TRUE" && session[:tour_id] == 6 %>
       <div class="demo demo_event">
         <h3>Product Tour Cont.</h3>
@@ -63,25 +63,25 @@
       </div>
       <% session[:tour_id] = 7 %>
     <% end %>
-    
+
     <h2>Past Emails</h2>
     <ul>
       <% @event.emails.each do |e| %>
         <li><%= e.subject %> (<%= e.created_at.in_time_zone("Central Time (US & Canada)").to_formatted_s(:long) %>)</li>
       <% end %>
     </ul>
-    
+
     <% if @cu.usertype >= User::TYPES['coordinator'] %>
       <h2>Send New Email</h2>
       <%= form_for Email.new do |e| %>
         <%= e.hidden_field :event_id, :value => @event.id %>
         <p>
           <%= e.label :subject %>
-          <%= e.text_field :subject, :value => "A2Kidz Recap: " + @event.name %>
+          <%= e.text_field :subject, :value => "A2Kids Recap: " + @event.name %>
         </p>
         <p>
           <%= e.label :content, "Email Message" %><br />
-          <%= e.text_area :content, :value => "\n\nThank you,\nA2 Kidz Leaders"%>
+          <%= e.text_area :content, :value => "\n\nThank you,\nA2 Kids Leaders"%>
         </p>
         <%= e.submit %>
       <% end %>

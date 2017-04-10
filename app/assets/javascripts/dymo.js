@@ -250,3 +250,13 @@
           dymoprint(printer, fname, lname, className, parents);
       }
     }
+
+    function startupCode() {
+      /* access DLS SDK */
+    }
+    function frameworkInitHelper() {
+      // init, then invoke a callback
+      dymo.label.framework.init(startupCode);
+    }
+
+    window.onload = frameworkInitHelper;
